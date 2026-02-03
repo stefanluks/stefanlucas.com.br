@@ -74,6 +74,32 @@ window.onload = () => {
                 h1.className = "titulo lobster-two-regular ";
                 h1.textContent = "Minhas turmas";
                 render.appendChild(h1);
+                let turmas = dados.turmas;
+                turmas.forEach(turma => {
+                    let div = document.createElement("div");
+                    div.className = "turma";
+                    let nome = document.createElement("div");
+                    nome.textContent = turma.nome;
+                    nome.className = "nome-turma";
+                    let info = document.createElement("div");
+                    info.className = "info";
+                    let curso = document.createElement("div");
+                    curso.className = "curso";
+                    curso.textContent = turma.curso;
+                    let caixa = document.createElement("div");
+                    caixa.className = "disciplinas";
+                    turma.disciplinas.forEach(d => {
+                        let tag = document.createElement("div");
+                        tag.className = "tag";
+                        tag.textContent = d;
+                        caixa.appendChild(tag);
+                    });
+                    div.appendChild(nome);
+                    info.appendChild(curso);
+                    info.appendChild(caixa);
+                    div.appendChild(info);
+                    render.appendChild(div);
+                });
             }
         },
         D: {
@@ -141,7 +167,7 @@ window.onload = () => {
         });
     });
 
-    opcoes[0].click();
+    opcoes[4].click();
 
     function Renderizar(tela){
         render.innerHTML = null;

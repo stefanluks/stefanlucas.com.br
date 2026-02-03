@@ -42,7 +42,21 @@ const dados = {
             imagem: "https://img.itch.zone/aW1nLzE5NjUyNTg5LmpwZw==/315x250%23c/N68%2Fb5.jpg"
         },
     ],
-    turmas: [],
+    turmas: [
+        {
+            nome: "05",
+            curso: "Técnico em Desenvolvimento de Sistemas",
+            disciplinas: ["Lógica de Programação", "Fundamentos de Eletroeletrônica Aplicada"],
+        },{
+            nome: "06",
+            curso: "Técnico em Desenvolvimento de Sistemas",
+            disciplinas: ["Lógica de Programação", "Fundamentos de Eletroeletrônica Aplicada"],
+        },{
+            nome: "425",
+            curso: "Técnico em Informática",
+            disciplinas: ["Banco do Brasil", "Desenvolvimento de sistemas web", "Manipulação de Banco de dados", "Gestão de segurança de TI", "Projetos de TI"],
+        }
+    ],
     icones: ["public/imagens/angular.png", "public/imagens/aseprite.png", "public/imagens/bootstrap.png", "public/imagens/c++.png", "public/imagens/corel.png", "public/imagens/csharp.svg", "public/imagens/css.png", "public/imagens/django.png", "public/imagens/electron.png", "public/imagens/flask.png", "public/imagens/flutter.webp", "public/imagens/git.jpg", "public/imagens/godot.png", "public/imagens/html.png", "public/imagens/java.png", "public/imagens/js.png", "public/imagens/Kivy.png", "public/imagens/node.png", "public/imagens/ps.png", "public/imagens/py.webp", "public/imagens/pygame.png", "public/imagens/react.png", "public/imagens/roblox-studio.png", "public/imagens/ts.png", "public/imagens/unity.png", "public/imagens/vue.png"]
 }
 
