@@ -3,7 +3,11 @@ import dados from "./dados.js";
 window.onload = () => {
     const opcoes = document.querySelectorAll(".opcao");
     const render = document.getElementById("render");
-
+    let canvas = null;
+    let ctx = null;
+    let estrelas = [];
+    let inimigos = [];
+    let frames = 0;
     const telas = {
         H: {
             nome: "Habilidades",
@@ -18,7 +22,7 @@ window.onload = () => {
                     let div = document.createElement("div");
                     div.className = "item";
                     let icon = new Image();
-                    icon.src = dados.icones[i];
+                    icon.src = dados.icones[i].url;
                     div.appendChild(icon);
                     lista.appendChild(div);
                 }
@@ -26,6 +30,15 @@ window.onload = () => {
                 let btnJogar = document.createElement("div");
                 btnJogar.className = "btn-jogar-h";
                 btnJogar.textContent = "Jogar";
+                btnJogar.addEventListener("click", () => {
+                    render.innerHTML = null;
+                    canvas = document.createElement("canvas");
+                    canvas.width = canvas.height = 650;
+                    canvas.style.width = canvas.style.height = "100%";
+                    ctx = canvas.getContext("2d");
+                    StartGame(canvas, ctx);
+                    render.appendChild(canvas);
+                });
                 render.appendChild(btnJogar);
                 let nave = document.createElement("img");
                 nave.className = "nave"
@@ -167,11 +180,68 @@ window.onload = () => {
         });
     });
 
-    opcoes[4].click();
+    opcoes[0].click();
 
     function Renderizar(tela){
         render.innerHTML = null;
         let t = telas[tela];
         t.renderizar();
+    }
+
+    function StartGame(canvas, ctx){
+        Update(canvas, ctx);
+        for(let i=0; i < 25; i++){
+            estrelas.push({
+                cor: "white",
+                w:2,
+                x: Math.floor(Math.random() * 650),
+                y: Math.floor(Math.random() * 650),
+            });
+        }
+        for(let i=0; i<dados.icones.length; i++){
+            let img = dados.icones[i];
+            let icon = new Image();
+            icon.src = img.url;
+            let x, y = 0;
+            if(i < 650/50){ y = 30; x = (i+0.5) * 45}
+            else { x = ((i - (650/50))+0.5)* 45; y = 2 * 40; }
+            let obj = {
+                img: icon,
+                d: img.dimensao,
+                w: 40,
+                x: x,
+                y: y,
+                left: true,
+                vivo: true,
+            }
+            inimigos.push(obj);       
+        }
+    }
+
+    function Update(){
+        frames ++;
+        ctx.fillStyle = "black";
+        ctx.fillRect(0, 0, 650, 650);
+        estrelas.forEach(star => {
+            ctx.fillStyle = star.cor;
+            ctx.fillRect(star.x, star.y, star.w, star.w);
+        })
+        inimigos.forEach(nave => {
+            ctx.fillStyle = nave.cor;
+            ctx.fillRect(nave.x, nave.y, nave.w, nave.w);
+            ctx.drawImage(nave.img, 0, 0, nave.d.w, nave.d.y, nave.x, nave.y, nave.w, nave.w);
+            if(frames % 50 == 0){
+                if(nave.left){
+                    nave.x+=4;
+                    // nave.y++;
+                    nave.left = false;
+                }else{
+                    nave.x-=4;
+                    // nave.y--;
+                    nave.left = true;
+                }
+            }
+        });
+        requestAnimationFrame(Update);
     }
 }

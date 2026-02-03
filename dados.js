@@ -57,7 +57,87 @@ const dados = {
             disciplinas: ["Banco do Brasil", "Desenvolvimento de sistemas web", "Manipulação de Banco de dados", "Gestão de segurança de TI", "Projetos de TI"],
         }
     ],
-    icones: ["public/imagens/angular.png", "public/imagens/aseprite.png", "public/imagens/bootstrap.png", "public/imagens/c++.png", "public/imagens/corel.png", "public/imagens/csharp.svg", "public/imagens/css.png", "public/imagens/django.png", "public/imagens/electron.png", "public/imagens/flask.png", "public/imagens/flutter.webp", "public/imagens/git.jpg", "public/imagens/godot.png", "public/imagens/html.png", "public/imagens/java.png", "public/imagens/js.png", "public/imagens/Kivy.png", "public/imagens/node.png", "public/imagens/ps.png", "public/imagens/py.webp", "public/imagens/pygame.png", "public/imagens/react.png", "public/imagens/roblox-studio.png", "public/imagens/ts.png", "public/imagens/unity.png", "public/imagens/vue.png"]
+    icones: [
+        {
+            dimensao: {w:225,y:225},
+            url: "public/imagens/angular.png"}, 
+        {
+            dimensao: {w:225,y:225},
+            url: "public/imagens/aseprite.png"}, 
+        {
+            dimensao: {w:512,y:512},
+            url: "public/imagens/bootstrap.png"}, 
+        {
+            dimensao: {w:1200,y:1349},
+            url: "public/imagens/c++.png"}, 
+        {
+            dimensao: {w:300,y:299},
+            url: "public/imagens/corel.png"}, 
+        {
+            dimensao: {w:2222,y:2500},
+            url: "public/imagens/csharp.svg"}, 
+        {
+            dimensao: {w:512,y:512},
+            url: "public/imagens/css.png"}, 
+        {
+            dimensao: {w:225,y:225},
+            url: "public/imagens/django.png"}, 
+        {
+            dimensao: {w:2048,y:2048},
+            url: "public/imagens/electron.png"}, 
+        {
+            dimensao: {w:860,y:900},
+            url: "public/imagens/flask.png"}, 
+        {
+            dimensao: {w:512,y:512},
+            url: "public/imagens/flutter.webp"}, 
+        {
+            dimensao: {w:748,y:846},
+            url: "public/imagens/git.jpg"}, 
+        {
+            dimensao: {w:1200,y:1200},
+            url: "public/imagens/godot.png"}, 
+        {
+            dimensao: {w:512,y:512},
+            url: "public/imagens/html.png"}, 
+        {
+            dimensao: {w:512,y:512},
+            url: "public/imagens/java.png"}, 
+        {
+            dimensao: {w:225,y:225},
+            url: "public/imagens/js.png"}, 
+        {
+            dimensao: {w:512,y:512},
+            url: "public/imagens/Kivy.png"}, 
+        {
+            dimensao: {w:225,y:225},
+            url: "public/imagens/node.png"}, 
+        {
+            dimensao: {w:1000,y:975},
+            url: "public/imagens/ps.png"}, 
+        {
+            dimensao: {w:512,y:512},
+            url: "public/imagens/py.webp"}, 
+        {
+            dimensao: {w:300,y:300},
+            url: "public/imagens/pygame.png"}, 
+        {
+            dimensao: {w:2300,y:2000},
+            url: "public/imagens/react.png"}, 
+        {
+            dimensao: {w:512,y:512},
+            url: "public/imagens/roblox-studio.png"}, 
+        {
+            dimensao: {w:512,y:512},
+            url: "public/imagens/ts.png"}, 
+        {
+            dimensao: {w:512,y:512},
+            url: "public/imagens/unity.png"}, 
+        {
+            dimensao: {w:225,y:225},
+            url: "public/imagens/vue.png",
+        }
+    ]
 }
 
 export default dados;

@@ -341,3 +341,7 @@ i{
     display: flex;
     align-items: center;
 }
+
+canvas{
+    border-radius: 7px;
+}
