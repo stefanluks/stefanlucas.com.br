@@ -68,7 +68,7 @@ body {
 
 .efeito i{
     cursor: pointer;
-    color: white;
+    color: white !important;
     font-size: 20px;
     margin: 0px 10px;
     transition: 0.7s;
