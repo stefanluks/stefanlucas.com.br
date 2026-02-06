@@ -14,6 +14,7 @@ window.onload = () => {
     let player = {};
     let jogando = false;
     let disparos = [];
+
     const telas = {
         H: {
             nome: "Habilidades",
@@ -222,13 +223,15 @@ window.onload = () => {
 
     function StartGame(canvas, ctx){
         jogando = true;
+        let img = new Image();
+        img.src = "public/imagens/nave.png";
         player = {
             cor: "white",
             x: canvas.width/2-30,
             y: canvas.height - 80,
             w: 40,
             h: 60,
-            img: null,
+            img: img,
             movendo: false,
             direcao: 0,
             teclasD: {
@@ -323,7 +326,8 @@ window.onload = () => {
             player.x += (2* player.direcao);
         }
         ctx.fillStyle = player.cor;
-        ctx.fillRect(player.x, player.y, player.w, player.h);
+        // ctx.fillRect(player.x, player.y, player.w, player.h);
+        ctx.drawImage(player.img, 0, 0, 64, 64, player.x, player.y, player.w, player.h,);
 
         disparos.forEach((tiro, indice) => {
             ctx.fillStyle = tiro.cor;
