@@ -1,6 +1,9 @@
 import dados from "./dados.js";
 
 window.onload = () => {
+    const disparo = new Audio('./public/sons/disparo.wav');
+    const explosao = new Audio('./public/sons/explosion.wav');
+    const colisao = new Audio('./public/sons/colisao.wav');
     const opcoes = document.querySelectorAll(".opcao");
     const render = document.getElementById("render");
     let canvas = null;
@@ -8,6 +11,9 @@ window.onload = () => {
     let estrelas = [];
     let inimigos = [];
     let frames = 0;
+    let player = {};
+    let jogando = false;
+    let disparos = [];
     const telas = {
         H: {
             nome: "Habilidades",
@@ -215,7 +221,49 @@ window.onload = () => {
     }
 
     function StartGame(canvas, ctx){
-        Update(canvas, ctx);
+        jogando = true;
+        player = {
+            cor: "white",
+            x: canvas.width/2-30,
+            y: canvas.height - 80,
+            w: 40,
+            h: 60,
+            img: null,
+            movendo: false,
+            direcao: 0,
+            teclasD: {
+                32: () => {
+                    disparos.push({
+                        x: player.x + 20,
+                        y: player.y,
+                        w: 4,
+                        h: 10,
+                        cor: "green",
+                    });
+                    disparo.play();
+                },
+            },
+            teclas: {
+                a: () => {
+                    player.movendo = true;
+                    player.direcao = -1;
+                },
+                d: () => {
+                    player.movendo = true;
+                    player.direcao = 1;
+                },
+            },
+            teclasUP: {
+                a: () => {
+                    player.movendo = false;
+                    player.direcao = 0;
+                },
+                d: () => {
+                    player.movendo = false;
+                    player.direcao = 0;
+                },
+            }
+        }
         for(let i=0; i < 25; i++){
             estrelas.push({
                 cor: "white",
@@ -239,9 +287,11 @@ window.onload = () => {
                 y: y,
                 left: true,
                 vivo: true,
+                life: 3,
             }
             inimigos.push(obj);       
         }
+        Update(canvas, ctx);
     }
 
     function Update(){
@@ -268,6 +318,58 @@ window.onload = () => {
                 }
             }
         });
+        // player Draw
+        if(player.movendo){
+            player.x += (2* player.direcao);
+        }
+        ctx.fillStyle = player.cor;
+        ctx.fillRect(player.x, player.y, player.w, player.h);
+
+        disparos.forEach((tiro, indice) => {
+            ctx.fillStyle = tiro.cor;
+            ctx.fillRect(tiro.x, tiro.y, tiro.w, tiro.h);
+            tiro.y -= 3;
+            for (let i = 0; i < inimigos.length; i++) {
+                let enemy = inimigos[i];
+                if (tiro.x < enemy.x + enemy.w &&
+                    tiro.x + tiro.w > enemy.x &&
+                    tiro.y < enemy.y + enemy.w &&
+                    tiro.y + tiro.h > enemy.y) {
+                    enemy.life-=1;
+                    if(enemy.life <= 0){
+                        inimigos.splice(i, 1);
+                        explosao.play();
+                    }else colisao.play();
+                    disparos.splice(indice, 1);
+                    break;
+                }
+            }
+            if(tiro.y < -10) disparos.splice(indice, 1);
+            // console.log(disparos.length);
+        });
+
         requestAnimationFrame(Update);
     }
+
+    window.addEventListener("keydown", key => {
+        if(jogando){
+            let tecla = player.teclasD[key.keyCode];
+            if(tecla) tecla();
+        }
+    });
+
+    window.addEventListener("keypress", key => {
+        if(jogando){
+            let tecla = player.teclas[key.key];
+            if(tecla) tecla();
+        }
+    });
+
+    window.addEventListener("keyup", key => {
+        if(jogando){
+            let tecla = player.teclasUP[key.key];
+            if(tecla) tecla();
+        }
+    });
+
 }
