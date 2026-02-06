@@ -16,6 +16,7 @@ window.onload = () => {
     let jogando = false;
     let gameOver = true;
     let disparos = [];
+    let btnResetHover = false;
 
     const telas = {
         H: {
@@ -336,15 +337,43 @@ window.onload = () => {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             ctx.fillStyle = "white";
             ctx.font = "40px Arial bold";
-            ctx.fillText("FIM DE JOGO", canvas.width/2-120, canvas.height/2-90)
+            ctx.fillText("FIM DE JOGO", canvas.width/2-120, canvas.height/2-90);
             ctx.font = "18px Arial bold";
-            ctx.fillText(pontos+" pontos", canvas.width/2-20, canvas.height/2-50)
+            ctx.fillText(pontos+" pontos", canvas.width/2-20, canvas.height/2-50);
+            ctx.fillStyle = "white";
+            if(btnResetHover) ctx.fillStyle = "gray";
             ctx.fillRect(canvas.width/2-120, canvas.height/2, 250, 40);
             ctx.fillStyle = "black";
+            if(btnResetHover) ctx.fillStyle = "white";
             ctx.font = "18px Arial bold";
-            ctx.fillText("Jogar Novamente", canvas.width/2-55, canvas.height/2+25)
+            ctx.fillText("Jogar Novamente", canvas.width/2-55, canvas.height/2+25);
+            window.addEventListener("mousemove", event => {
+                let mouse = {x: event.offsetX, y: event.offsetY};
+                let btn = {x: canvas.width/2-120, y: canvas.height/2, w: 250, h: 40};
+                if(
+                    mouse.x >= btn.x &&
+                    mouse.x <= btn.x + btn.w &&
+                    mouse.y >= btn.y &&
+                    mouse.y <= btn.y + btn.h
+                ){
+                    btnResetHover = true;
+                }else{
+                    btnResetHover = false;
+                }
+            });
+            
         }
 
+        function Reiniciar(){
+            let estrelas = [];
+            let inimigos = [];
+            let frames = 0;
+            let pontos = 0;
+            let player = {};
+            let jogando = true;
+            let gameOver = false;
+            let disparos = [];
+        }
 
         disparos.forEach((tiro, indice) => {
             ctx.fillStyle = tiro.cor;
