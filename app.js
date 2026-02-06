@@ -11,8 +11,10 @@ window.onload = () => {
     let estrelas = [];
     let inimigos = [];
     let frames = 0;
+    let pontos = 0;
     let player = {};
     let jogando = false;
+    let gameOver = true;
     let disparos = [];
 
     const telas = {
@@ -25,7 +27,7 @@ window.onload = () => {
                 render.appendChild(h1);
                 let lista = document.createElement("div");
                 lista.className = "lista-habilidades"
-                for(let i=0; i<dados.icones.length; i++){
+                for (let i = 0; i < dados.icones.length; i++) {
                     let div = document.createElement("div");
                     div.className = "item";
                     let icon = new Image();
@@ -176,7 +178,7 @@ window.onload = () => {
                     info.className = "info";
                     let h3 = document.createElement("h3");
                     h3.textContent = jogo.nome;
-                    let descricao= document.createElement("p");
+                    let descricao = document.createElement("p");
                     descricao.textContent = jogo.descricao;
                     let btns = document.createElement("div");
                     btns.className = "tag-btns";
@@ -207,7 +209,7 @@ window.onload = () => {
 
     opcoes.forEach(op => {
         op.addEventListener("click", () => {
-            opcoes.forEach(o => {o.className = "opcao"; });
+            opcoes.forEach(o => { o.className = "opcao"; });
             op.className = "opcao selecionado";
             Renderizar(op.getAttribute("data"));
         });
@@ -215,19 +217,19 @@ window.onload = () => {
 
     opcoes[0].click();
 
-    function Renderizar(tela){
+    function Renderizar(tela) {
         render.innerHTML = null;
         let t = telas[tela];
         t.renderizar();
     }
 
-    function StartGame(canvas, ctx){
+    function StartGame(canvas, ctx) {
         jogando = true;
         let img = new Image();
         img.src = "public/imagens/nave.png";
         player = {
             cor: "white",
-            x: canvas.width/2-30,
+            x: canvas.width / 2 - 30,
             y: canvas.height - 80,
             w: 40,
             h: 60,
@@ -267,21 +269,21 @@ window.onload = () => {
                 },
             }
         }
-        for(let i=0; i < 25; i++){
+        for (let i = 0; i < 25; i++) {
             estrelas.push({
                 cor: "white",
-                w:2,
+                w: 2,
                 x: Math.floor(Math.random() * 650),
                 y: Math.floor(Math.random() * 650),
             });
         }
-        for(let i=0; i<dados.icones.length; i++){
+        for (let i = 0; i < dados.icones.length; i++) {
             let img = dados.icones[i];
             let icon = new Image();
             icon.src = img.url;
             let x, y = 0;
-            if(i < 650/50){ y = 30; x = (i+0.5) * 45}
-            else { x = ((i - (650/50))+0.5)* 45; y = 2 * 40; }
+            if (i < 650 / 50) { y = 30; x = (i + 0.5) * 45 }
+            else { x = ((i - (650 / 50)) + 0.5) * 45; y = 2 * 40; }
             let obj = {
                 img: icon,
                 d: img.dimensao,
@@ -292,42 +294,57 @@ window.onload = () => {
                 vivo: true,
                 life: 3,
             }
-            inimigos.push(obj);       
+            inimigos.push(obj);
         }
         Update(canvas, ctx);
     }
 
-    function Update(){
-        frames ++;
+    function Update() {
+        frames++;
         ctx.fillStyle = "black";
         ctx.fillRect(0, 0, 650, 650);
         estrelas.forEach(star => {
             ctx.fillStyle = star.cor;
             ctx.fillRect(star.x, star.y, star.w, star.w);
-        })
+        });
+
         inimigos.forEach(nave => {
             ctx.fillStyle = nave.cor;
             ctx.fillRect(nave.x, nave.y, nave.w, nave.w);
             ctx.drawImage(nave.img, 0, 0, nave.d.w, nave.d.y, nave.x, nave.y, nave.w, nave.w);
-            if(frames % 50 == 0){
-                if(nave.left){
-                    nave.x+=4;
+            if (frames % 50 == 0) {
+                if (nave.left) {
+                    nave.x += 4;
                     // nave.y++;
                     nave.left = false;
-                }else{
-                    nave.x-=4;
+                } else {
+                    nave.x -= 4;
                     // nave.y--;
                     nave.left = true;
                 }
             }
         });
         // player Draw
-        if(player.movendo){
-            player.x += (2* player.direcao);
+        if (player.movendo) {
+            player.x += (2 * player.direcao);
         }
         ctx.fillStyle = player.cor;
         // ctx.fillRect(player.x, player.y, player.w, player.h);
         ctx.drawImage(player.img, 0, 0, 64, 64, player.x, player.y, player.w, player.h,);
+
+        if(gameOver){
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = "white";
+            ctx.font = "40px Arial bold";
+            ctx.fillText("FIM DE JOGO", canvas.width/2-120, canvas.height/2-90)
+            ctx.font = "18px Arial bold";
+            ctx.fillText(pontos+" pontos", canvas.width/2-20, canvas.height/2-50)
+            ctx.fillRect(canvas.width/2-120, canvas.height/2, 250, 40);
+            ctx.fillStyle = "black";
+            ctx.font = "18px Arial bold";
+            ctx.fillText("Jogar Novamente", canvas.width/2-55, canvas.height/2+25)
+        }
+
 
         disparos.forEach((tiro, indice) => {
             ctx.fillStyle = tiro.cor;
@@ -339,40 +356,47 @@ window.onload = () => {
                     tiro.x + tiro.w > enemy.x &&
                     tiro.y < enemy.y + enemy.w &&
                     tiro.y + tiro.h > enemy.y) {
-                    enemy.life-=1;
-                    if(enemy.life <= 0){
+                    enemy.life -= 1;
+                    if (enemy.life <= 0) {
                         inimigos.splice(i, 1);
                         explosao.play();
-                    }else colisao.play();
+                    } else {
+                        pontos += 1;
+                        colisao.play();
+                    }
                     disparos.splice(indice, 1);
                     break;
                 }
             }
-            if(tiro.y < -10) disparos.splice(indice, 1);
+            if (tiro.y < -10) disparos.splice(indice, 1);
             // console.log(disparos.length);
         });
+
+        ctx.fillStyle = "white";
+        ctx.font = "20px Arial bold";
+        ctx.fillText("" + pontos, canvas.width - 30, canvas.height - 30);
 
         requestAnimationFrame(Update);
     }
 
     window.addEventListener("keydown", key => {
-        if(jogando){
+        if (jogando) {
             let tecla = player.teclasD[key.keyCode];
-            if(tecla) tecla();
+            if (tecla) tecla();
         }
     });
 
     window.addEventListener("keypress", key => {
-        if(jogando){
+        if (jogando) {
             let tecla = player.teclas[key.key];
-            if(tecla) tecla();
+            if (tecla) tecla();
         }
     });
 
     window.addEventListener("keyup", key => {
-        if(jogando){
+        if (jogando) {
             let tecla = player.teclasUP[key.key];
-            if(tecla) tecla();
+            if (tecla) tecla();
         }
     });
 
