@@ -137,6 +137,14 @@ const dados = {
             dimensao: {w:225,y:225},
             url: "public/imagens/vue.png",
         }
+    ],
+    devlogs: [
+        {
+            sigla: "12G1Y",
+            nome: "Projeto 12G1Y",
+            descricao: "Lançar 12 jogos em 1 ano.",
+            posts: [],
+        }
     ]
 }
 

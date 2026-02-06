@@ -345,3 +345,68 @@ i{
 canvas{
     border-radius: 7px;
 }
+
+/* Container dos cards */
+#container-projetos {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px;
+    font-family: sans-serif;
+}
+
+/* Estrutura principal do Card */
+.card {
+    display: flex;
+    background-color: #212529; /* Cor dark do Bootstrap */
+    color: white;
+    border: 1px solid #373b3e;
+    border-radius: 8px;
+    overflow: hidden;
+    max-width: 540px;
+}
+
+/* Área da Sigla (substituindo a imagem) */
+.card-sigla {
+    background-color: #6c757d; /* Cinza secundário */
+    min-width: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Conteúdo do Card */
+.card-conteudo {
+    padding: 16px;
+    flex: 1;
+}
+
+.card-titulo {
+    margin: 0 0 8px 0;
+    font-size: 1.25rem;
+}
+
+.card-descricao {
+    margin: 0 0 12px 0;
+    color: #adb5bd;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.card-footer {
+    font-size: 0.85rem;
+    color: #6c757d;
+}
+
+/* Responsividade para telas pequenas */
+@media (max-width: 480px) {
+    .projeto-card {
+        flex-direction: column;
+    }
+    .card-sigla {
+        padding: 20px;
+    }
+}

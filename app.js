@@ -122,6 +122,32 @@ window.onload = () => {
                 h1.className = "titulo lobster-two-regular";
                 h1.textContent = "Dev log's";
                 render.appendChild(h1);
+                let logs = dados.devlogs;
+                logs.forEach(log => {
+                    // Criando o elemento do card
+                    const card = document.createElement('div');
+                    card.className = 'card mb-3 bg-dark text-light'; // Estilo escuro como na imagem
+                    card.style.width = '100%';
+
+                    card.innerHTML = `
+                        <div class="row g-0">
+                            <div class="col-md-4 d-flex align-items-center justify-content-center bg-secondary rounded-start" style="min-height: 150px;">
+                                <h2 class="display-6 card-sigla text-light fw-bold">${log.sigla}</h2>
+                            </div>
+                            <div class="col-md-8 text-light">
+                                <div class="card-body">
+                                    <h5 class="card-title">${log.nome}</h5>
+                                    <p class="card-text">${log.descricao}</p>
+                                    <p class="card-text">
+                                        <small class="text-muted">Quantidade de posts: ${log.posts.length}</small>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+
+                    render.appendChild(card);
+                })
             }
         },
         J: {
