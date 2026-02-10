@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plano de Ensino: Tópicos Especiais em Tecnologia</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --primary-dark: #3730a3;
+            --secondary: #10b981;
+            --bg: #f8fafc;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --white: #ffffff;
+            --border: #e2e8f0;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            color: var(--white);
+            padding: 4rem 2rem;
+            text-align: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-content { max-width: 900px; margin: 0 auto; }
+        .badge {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 99px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        h1 { font-size: 2.5rem; margin: 1.5rem 0 0.5rem; }
+        .subtitle { font-size: 1.1rem; opacity: 0.9; font-weight: 300; }
+
+        .container {
+            max-width: 1100px;
+            margin: -3rem auto 4rem;
+            padding: 0 1.5rem;
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 2rem;
+        }
+
+        .main-content { display: flex; flex-direction: column; gap: 2rem; }
+
+        .card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .sidebar { position: sticky; top: 2rem; height: fit-content; }
+
+        h2 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        h2::before {
+            content: "";
+            width: 4px;
+            height: 24px;
+            background: var(--secondary);
+            border-radius: 2px;
+        }
+
+        h3 { color: var(--primary-dark); margin: 1.5rem 0 0.75rem; font-size: 1.1rem; }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            border: 1px solid var(--border);
+        }
+
+        .info-item label { display: block; font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; font-weight: 700; }
+        .info-item span { font-weight: 600; color: var(--text-main); }
+
+        ul { list-style: none; }
+        li {
+            margin-bottom: 0.75rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-weight: bold;
+        }
+
+        .unit-box {
+            border-left: 2px solid var(--border);
+            padding-left: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .formula-box {
+            background: #f1f5f9;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--primary-dark);
+            margin: 1rem 0;
+        }
+
+        .nav-list {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        .nav-list a {
+            display: block;
+            padding: 0.75rem 0;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: 0.2s;
+            font-size: 0.9rem;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .nav-list a:hover { color: var(--primary); padding-left: 5px; }
+
+        @media (max-width: 850px) {
+            .container { grid-template-columns: 1fr; }
+            .sidebar { display: none; }
+            h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-content">
+        <span class="badge">Plano de Ensino 2026/1</span>
+        <h1>Tópicos Especiais em Tecnologia</h1>
+        <p class="subtitle">Engenharia de Software e Ciência da Computação</p>
+    </div>
+</header>
+
+<div class="container">
+    <div class="main-content">
+        <div class="info-grid">
+            <div class="info-item">
+                <label>Professor</label>
+                <span>Stefan Lucas Aquino Silva</span>
+            </div>
+            <div class="info-item">
+                <label>Carga Horária</label>
+                <span>60 Horas</span>
+            </div>
+            <div class="info-item">
+                <label>Período</label>
+                <span>3º Semestre</span>
+            </div>
+        </div>
+
+        <section id="ementa" class="card">
+            <h2>Ementa</h2>
+            <p>Estudo dos conceitos fundamentais para o desenvolvimento de jogos digitais utilizando motor de jogos. Introdução à interface do motor, implementação de scripts, movimentação de personagens, sistema de colisão e física, elementos gráficos, câmera, mecânicas de jogo, animação de sprites, construção de fases, controle de cenas, interface com o usuário, áudio e processo de compilação do jogo.</p>
+        </section>
+
+        <section id="objetivos" class="card">
+            <h2>Objetivos</h2>
+            <h3>Geral</h3>
+            <p>Capacitar o estudante a desenvolver um jogo digital funcional, aplicando conceitos de programação, física, animação, interface gráfica e mecânicas de jogo, utilizando um motor de jogos.</p>
+            
+            <h3>Específicos</h3>
+            <ul>
+                <li>Compreender a interface e a estrutura de um motor de jogos;</li>
+                <li>Implementar scripts para controle de personagens e objetos;</li>
+                <li>Aplicar conceitos de movimentação, colisão e física;</li>
+                <li>Desenvolver mecânicas básicas;</li>
+                <li>Integrar áudio e compilar versões executáveis.</li>
+            </ul>
+        </section>
+
+        <section id="programa" class="card">
+            <h2>Programa da Disciplina</h2>
+            
+            <div class="unit-box">
+                <h3>Unidade 1 – Introdução</h3>
+                <ul>
+                    <li>Apresentação do projeto final</li>
+                    <li>Framework MDA e GDD (Game Design Document)</li>
+                    <li>Interface do motor</li>
+                </ul>
+            </div>
+
+            <div class="unit-box">
+                <h3>Unidade 2 – Programação Básica</h3>
+                <ul>
+                    <li>Scripts e conceitos fundamentais</li>
+                    <li>Detecção de colisão e física</li>
+                </ul>
+            </div>
+
+            <div class="unit-box">
+                <h3>Unidade 3 – Visual e Mecânica</h3>
+                <ul>
+                    <li>Gráficos, câmera e mecânica de pulo</li>
+                    <li>Animação de sprites</li>
+                </ul>
+            </div>
+
+            <div class="unit-box">
+                <h3>Unidade 4 – Construção</h3>
+                <ul>
+                    <li>Desenvolvimento de fases</li>
+                    <li>Game Controller e transição de cenas</li>
+                </ul>
+            </div>
+
+            <div class="unit-box">
+                <h3>Unidade 5 – Finalização</h3>
+                <ul>
+                    <li>Interface HUD e sistemas de tempo real</li>
+                    <li>Áudio e Compilação final</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="metodologia" class="card">
+            <h2>Metodologia</h2>
+            <p>Aulas expositivas dialogadas, demonstrações práticas e estímulo à discussão de casos reais. O curso foca na <strong>aprendizagem baseada em problemas</strong> e no desenvolvimento de projetos colaborativos, visando competências técnicas e comunicativas.</p>
+        </section>
+
+        <section id="avaliacao" class="card">
+            <h2>Avaliação</h2>
+            <p>A avaliação ocorre em dois graus (G1 e G2), composta por provas e atividades práticas.</p>
+            
+            <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+                <div style="flex: 1; padding: 1rem; border: 1px solid var(--border); border-radius: 8px;">
+                    <strong>Grau G1</strong><br>
+                    Atividades (4.0) + Prova (6.0)
+                </div>
+                <div style="flex: 1; padding: 1rem; border: 1px solid var(--border); border-radius: 8px;">
+                    <strong>Grau G2</strong><br>
+                    Projeto (4.0) + Prova (6.0)
+                </div>
+            </div>
+
+            <h3>Média Parcial (MP)</h3>
+            <div class="formula-box">
+                MP = [G1 + (G2 \times 2)]
+            </div>
+            <p><small>* Aprovado com MP ≥ 6,0.</small></p>
+
+            
+
+            <h3>Exame Final (EF)</h3>
+            <p>Caso o aluno não atinja a média (e tenha frequência ≥ 75%):</p>
+            <div class="formula-box">
+                MF = [MP + (EF \times 2)]
+            </div>
+        </section>
+    </div>
+
+    <aside class="sidebar">       
+        <div class="card" style="margin-top: 1.5rem; padding: 1.5rem;">
+            <p style="font-size: 0.85rem; color: var(--text-muted);">
+                <strong>Status:</strong> Ativo<br>
+                <strong>Ano:</strong> 2026<br>
+                <strong>Software:</strong> Unity Engine
+            </p>
+        </div>
+    </aside>
+</div>
+
+<footer style="text-align: center; padding: 2rem; color: var(--text-muted); font-size: 0.9rem;">
+    &copy; 2026 - Departamento de Tecnologia - Prof. Stefan Lucas
+</footer>
+
+</body>
+</html>

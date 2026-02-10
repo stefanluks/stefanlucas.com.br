@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GDD - O Aventureiro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Outfit:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #ffcc00;
+            --secondary: #6366f1;
+            --bg-dark: #0f172a;
+            --card-bg: #1e293b;
+            --accent: #f43f5e;
+            --text: #f8fafc;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        /* Animação de fundo */
+        .bg-pixel {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: radial-gradient(var(--secondary) 1px, transparent 1px);
+            background-size: 40px 40px;
+            opacity: 0.1;
+            z-index: -1;
+        }
+
+        header {
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(to bottom, transparent, var(--bg-dark)), url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        header h1 {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 3rem;
+            color: var(--primary);
+            text-shadow: 4px 4px var(--accent);
+            margin-bottom: 1rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .container {
+            max-width: 900px;
+            margin: -100px auto 100px;
+            padding: 0 20px;
+        }
+
+        .section-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            border: 2px solid #334155;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-card:hover {
+            transform: scale(1.02);
+            border-color: var(--secondary);
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.2);
+        }
+
+        .section-card h2 {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.9rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .content {
+            display: none;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #334155;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .section-card.active .content { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Estilos de Jogo */
+        .grid-mechanics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .mechanic-item {
+            background: rgba(0,0,0,0.3);
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .ui-preview {
+            background: #000;
+            height: 150px;
+            border-radius: 8px;
+            position: relative;
+            border: 2px solid #334155;
+            margin-top: 1rem;
+        }
+
+        .hp-bar {
+            position: absolute;
+            top: 10px; left: 10px;
+            width: 120px; height: 15px;
+            background: #444;
+            border: 2px solid #fff;
+        }
+        .hp-fill { width: 70%; height: 100%; background: var(--accent); }
+
+        .orb-counter {
+            position: absolute;
+            top: 30px; left: 10px;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.6rem;
+            color: var(--primary);
+        }
+
+        .portal {
+            position: absolute;
+            right: 20px; top: 50%;
+            transform: translateY(-50%);
+            width: 50px; height: 80px;
+            border-radius: 50% 50% 0 0;
+            background: #111;
+            border: 3px solid #222;
+            transition: 0.5s;
+        }
+
+        .portal.active {
+            background: var(--secondary);
+            box-shadow: 0 0 20px var(--secondary);
+            border-color: #fff;
+        }
+
+        .footer { text-align: center; color: var(--text-muted); padding: 2rem; font-size: 0.8rem; }
+
+        .status-tag {
+            background: var(--accent);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: bold;
+            float: right;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-pixel"></div>
+
+    <header>
+        <span class="status-tag" style="float: none; margin-bottom: 20px;">v1.0 - GDD Oficial</span>
+        <h1>O AVENTUREIRO</h1>
+        <p class="subtitle">Ação & Aventura 2D Top-Down</p>
+    </header>
+
+    <div class="container">
+
+        <div class="section-card" onclick="toggleCard(this)">
+            <h2><span class="icon">📜</span> 1. Visão Geral</h2>
+            <div class="content">
+                <p><strong>Gênero:</strong> Ação / Aventura 2D Top-Down</p>
+                <p><strong>Plataforma:</strong> Desktop</p>
+                <p><strong>Proposta:</strong> Explorar ruínas, derrotar monstros e ativar portais mágicos através de orbes.</p>
+            </div>
+        </div>
+
+        <div class="section-card" onclick="toggleCard(this)">
+            <h2><span class="icon">⚔️</span> 2. Mecânicas Principais</h2>
+            <div class="content">
+                <div class="grid-mechanics">
+                    <div class="mechanic-item">
+                        <strong>Movimento</strong>
+                        <p>Livre em 4 direções com detecção de colisão física.</p>
+                    </div>
+                    <div class="mechanic-item">
+                        <strong>Combate</strong>
+                        <p>Ataque de espada com cooldown e direção baseada no movimento.</p>
+                    </div>
+                    <div class="mechanic-item">
+                        <strong>Progressão</strong>
+                        <p>Coleta de orbes dropadas por inimigos para abrir o portal.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-card" onclick="toggleCard(this)">
+            <h2><span class="icon">👾</span> 3. Inimigos & Orbes</h2>
+            <div class="content">
+                <p>Inimigos possuem IA de patrulha e causam dano por contato. Cada morte garante o drop de uma orbe essencial.</p>
+                <ul style="margin-top: 10px;">
+                    <li>Morte do Inimigo = Drop de 1 Orbe</li>
+                    <li>Coleta Automática (Trigger de proximidade)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section-card" onclick="toggleCard(this)">
+            <h2><span class="icon">🗺️</span> 4. Sistema de Fases</h2>
+            <div class="content">
+                <p>Progressão sequencial com dificuldade crescente (densidade de inimigos e escala do mapa).</p>
+                <div class="ui-preview">
+                    <div class="hp-bar"><div class="hp-fill"></div></div>
+                    <div class="orb-counter">ORBS: 3/3</div>
+                    <div class="portal active"></div>
+                    <p style="color: #fff; position: absolute; bottom: 5px; width: 100%; text-align: center; font-size: 10px;">SIMULAÇÃO: PORTAL ATIVADO</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-card" onclick="toggleCard(this)">
+            <h2><span class="icon">🖥️</span> 5. Interface & Estados</h2>
+            <div class="content">
+                <p><strong>Estados do Jogo:</strong> Menu Inicial → Gameplay → Transição de Fase → Game Over.</p>
+                <p><strong>UI Fixa:</strong> Barra de vida (HUD) e Contador dinâmico de Orbes.</p>
+            </div>
+        </div>
+
+        <div class="section-card" onclick="toggleCard(this)">
+            <h2><span class="icon">🔊</span> 6. Sistema de Áudio</h2>
+            <div class="content">
+                <div class="grid-mechanics">
+                    <div class="mechanic-item" style="border-color: var(--secondary)">
+                        <strong>SFX: Ataque</strong>
+                    </div>
+                    <div class="mechanic-item" style="border-color: var(--secondary)">
+                        <strong>SFX: Dano/Morte</strong>
+                    </div>
+                    <div class="mechanic-item" style="border-color: var(--secondary)">
+                        <strong>SFX: Coleta</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        Documento gerado para fins de desenvolvimento - Projeto O Aventureiro 2026
+    </div>
+
+    <script>
+        function toggleCard(card) {
+            // Fecha outros cards se desejar (opcional)
+            // document.querySelectorAll('.section-card').forEach(c => c.classList.remove('active'));
+            
+            card.classList.toggle('active');
+        }
+
+        // Abre o primeiro card por padrão
+        window.onload = () => {
+            document.querySelector('.section-card').classList.add('active');
+        }
+    </script>
+</body>
+</html>
