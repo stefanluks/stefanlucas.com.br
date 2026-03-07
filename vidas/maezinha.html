@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Dia da Mulher, Minha Guerreira</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --roxo-escuro: #4b2c5e;
+            --roxo-medio: #6a3d8a;
+            --dourado: #d4af37;
+            --dourado-claro: #f1d592;
+            --branco-suave: #fcfaff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #2e1a3d 0%, #4b2c5e 50%, #2e1a3d 100%);
+            color: var(--branco-suave);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animação Fade-In */
+        .fade-in {
+            animation: fadeIn ease 2.5s;
+            -webkit-animation: fadeIn ease 2.5s;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Cabeçalho */
+        header {
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            border-bottom: 2px solid var(--dourado);
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            color: var(--dourado);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-style: italic;
+            font-size: 1.2rem;
+            color: var(--dourado-claro);
+        }
+
+        /* Seção Imagem */
+        .profile-section {
+            display: flex;
+            justify-content: center;
+            margin-top: -100px;
+            margin-bottom: 40px;
+        }
+
+        .profile-img {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            border: 5px solid var(--dourado);
+            object-fit: cover;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            background-color: #eee;
+        }
+
+        /* Texto Emocionante */
+        .content-section {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .content-section h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--dourado);
+            margin-bottom: 20px;
+        }
+
+        .emotional-text {
+            font-size: 1.1rem;
+            font-weight: 300;
+            color: #e0e0e0;
+        }
+
+        /* Cards de Qualidades */
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            background: rgba(212, 175, 55, 0.1);
+            border-color: var(--dourado);
+        }
+
+        .card i {
+            font-size: 2.5rem;
+            color: var(--dourado);
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+            color: var(--dourado-claro);
+        }
+
+        /* Linha do Tempo */
+        .timeline {
+            max-width: 800px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        .timeline-item {
+            padding: 20px;
+            border-left: 2px solid var(--dourado);
+            position: relative;
+            margin-bottom: 20px;
+            background: rgba(0,0,0,0.2);
+            margin-left: 20px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            width: 15px;
+            height: 15px;
+            background: var(--dourado);
+            border-radius: 50%;
+            position: absolute;
+            left: -9px;
+            top: 25px;
+        }
+
+        /* Rodapé */
+        footer {
+            padding: 60px 20px;
+            text-align: center;
+            background: rgba(0,0,0,0.3);
+            border-top: 1px solid var(--dourado);
+            margin-top: 50px;
+        }
+
+        footer p {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--dourado);
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2rem; }
+            header { height: 50vh; }
+            .profile-img { width: 180px; height: 180px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="fade-in">
+        <h1>Feliz Dia da Mulher, Minha Guerreira</h1>
+        <p class="subtitle">Um tributo àquela que é o meu maior exemplo.</p>
+    </header>
+
+    <div class="profile-section fade-in">
+        <img src="../public/imagens/maezinha.jpeg" alt="Foto da Mãe" class="profile-img">
+    </div>
+
+    <section class="content-section fade-in">
+        <h2>Força e Nobreza em um só coração</h2>
+        <p class="emotional-text">
+            Mãe, sua trajetória é o desenho mais bonito de resiliência que conheço. No balanço entre o trabalho árduo e o cuidado infinito, você nunca deixou o cansaço apagar o brilho do seu amor. Sua dedicação não apenas sustenta nossos dias, mas constrói o caráter de quem caminha ao seu lado. Hoje celebramos a mulher incrível que você é.
+        </p>
+    </section>
+
+    <div class="cards-container fade-in">
+        <div class="card">
+            <i class="fas fa-fist-raised"></i>
+            <h3>Força</h3>
+            <p>Capaz de mover montanhas para proteger os seus.</p>
+        </div>
+        <div class="card">
+            <i class="fas fa-heart"></i>
+            <h3>Amor</h3>
+            <p>A fonte inesgotável que nutre nossos sonhos.</p>
+        </div>
+        <div class="card">
+            <i class="fas fa-briefcase"></i>
+            <h3>Determinação</h3>
+            <p>Trabalhadora incansável que vence todos os desafios.</p>
+        </div>
+        <div class="card">
+            <i class="fas fa-lightbulb"></i>
+            <h3>Inspiração</h3>
+            <p>O farol que guia meus passos nos dias mais escuros.</p>
+        </div>
+    </div>
+
+    <section class="timeline fade-in">
+        <h2 style="text-align: center; color: var(--dourado); font-family: 'Playfair Display'; margin-bottom: 30px;">Meu Orgulho e Exemplo</h2>
+        <div class="timeline-item">
+            <img src="../public/imagens/mae e laura.jpeg" height="350px" width="100%" alt="vozinha" style="object-fit: cover; border-radius: 20px; box-shadow: 0 0 10px white;">
+            <p>Super Vovó, obrigado por cuidar do meu tesouro.</p>
+        </div>
+        <div class="timeline-item">
+            <strong>O Legado de Hoje</strong>
+            <p>A colheita de todo amor e esforço plantados com tanta paciência.</p>
+        </div>
+    </section>
+
+    <footer class="fade-in">
+        <p>"Seu esforço construiu quem eu sou hoje."</p>
+        <div style="margin-top: 15px; font-size: 0.8rem; opacity: 0.6;">
+            Com todo amor, para a melhor mãe do mundo.
+        </div>
+    </footer>
+
+</body>
+</html>

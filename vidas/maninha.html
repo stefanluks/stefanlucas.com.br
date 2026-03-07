@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Irmã, mulher que inspira • Dia da Mulher</title>
+    <!-- Google Fonts: Inter (moderna, séria e limpa) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 (ícones minimalistas) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            background: #f8faff; /* azul muito suave */
+            color: #1e2b3f;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        /* container principal com max-width elegante */
+        .page {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+            background: rgba(255,255,255,0.7);
+            backdrop-filter: blur(2px);
+            box-shadow: 0 0 60px rgba(0, 40, 80, 0.06);
+        }
+
+        /* animações suaves de entrada (scroll) */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.8s cubic-bezier(0.2, 0.9, 0.3, 1), transform 0.8s cubic-bezier(0.2, 0.9, 0.3, 1);
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* cabeçalho elegante */
+        .hero {
+            text-align: center;
+            margin-bottom: 4rem;
+            border-bottom: 2px solid rgba(212, 175, 55, 0.3);
+            padding-bottom: 2.5rem;
+        }
+
+        .hero-title {
+            font-size: clamp(2.6rem, 8vw, 4.8rem);
+            font-weight: 600;
+            letter-spacing: -0.03em;
+            color: #0b2545;
+            line-height: 1.2;
+        }
+
+        .hero-title span {
+            color: #b49450;
+            font-weight: 500;
+            display: inline-block;
+            position: relative;
+        }
+
+        .hero-title span::after {
+            content: '';
+            position: absolute;
+            bottom: 8px;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: rgba(180, 148, 80, 0.15);
+            z-index: -1;
+        }
+
+        .subtitle {
+            font-size: 1.6rem;
+            font-weight: 300;
+            color: #3b4d66;
+            margin-top: 0.8rem;
+            letter-spacing: 1px;
+        }
+
+        .subtitle i {
+            color: #b49450;
+            margin: 0 8px;
+        }
+
+        /* seção foto destacada */
+        .featured-image {
+            display: flex;
+            justify-content: center;
+            margin: 3rem 0 4rem;
+        }
+
+        .image-frame {
+            width: 260px;
+            height: 260px;
+            border-radius: 50%;
+            background: #ffffff;
+            box-shadow: 0 20px 35px -10px rgba(0,35,70,0.2), 0 0 0 6px rgba(212, 175, 55, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            transition: box-shadow 0.3s;
+        }
+
+        .image-frame:hover {
+            box-shadow: 0 25px 40px -6px #1e3b5a40, 0 0 0 8px #d9b650;
+        }
+
+        .image-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            display: block;
+        }
+
+        .image-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(145deg, #d9e2ef, #b7cfec);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            color: #2b4a6f;
+            border-radius: 50%;
+        }
+
+        /* texto de apresentação (sobre a irmã) */
+        .bio-text {
+            max-width: 860px;
+            margin: 2.5rem auto 3rem;
+            text-align: center;
+            font-size: 1.3rem;
+            font-weight: 350;
+            color: #1d3146;
+            background: #ffffffcc;
+            backdrop-filter: blur(4px);
+            padding: 2.8rem 3rem;
+            border-radius: 48px;
+            box-shadow: 0 10px 25px -12px #0b2545, 0 0 0 1px #ffffff inset, 0 0 0 2px #e9d19b inset;
+            line-height: 1.8;
+        }
+
+        .bio-text strong {
+            color: #b49450;
+            font-weight: 600;
+            background: #fcf9f0;
+            padding: 0.2rem 0.8rem;
+            border-radius: 40px;
+            font-size: 1.4rem;
+        }
+
+        /* seção missão de vida (blocos) */
+        .mission-section {
+            margin: 5rem 0 3rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 500;
+            color: #103450;
+            text-align: center;
+            margin-bottom: 2.8rem;
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 90px;
+            height: 4px;
+            background: #c6a454;
+            margin: 1rem auto 0;
+            border-radius: 4px;
+        }
+
+        .mission-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+            margin: 2.5rem 0;
+        }
+
+        .mission-block {
+            background: white;
+            padding: 2rem 1.8rem;
+            border-radius: 28px;
+            box-shadow: 0 10px 30px -12px #244b6b, 0 0 0 1px #f1e9d6 inset;
+            transition: 0.25s ease;
+            border-bottom: 4px solid transparent;
+        }
+
+        .mission-block:hover {
+            transform: translateY(-6px);
+            border-bottom-color: #c9ad67;
+            box-shadow: 0 25px 30px -15px #1f4868;
+        }
+
+        .mission-icon {
+            font-size: 2.8rem;
+            color: #b49450;
+            margin-bottom: 1.2rem;
+        }
+
+        .mission-block h3 {
+            font-size: 1.9rem;
+            font-weight: 500;
+            color: #142f44;
+            margin-bottom: 0.8rem;
+        }
+
+        .mission-block p {
+            color: #2f4462;
+            font-weight: 350;
+            font-size: 1rem;
+        }
+
+        /* cards de qualidades */
+        .qualities-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+
+        .quality-card {
+            background: #ffffffd9;
+            backdrop-filter: blur(4px);
+            padding: 2rem 1.2rem 1.5rem;
+            border-radius: 36px;
+            width: 200px;
+            text-align: center;
+            border: 1px solid #e7dbbd;
+            box-shadow: 0 12px 25px -18px #0b2f4a, 0 0 0 1px #fffcf0 inset;
+            transition: 0.2s;
+        }
+
+        .quality-card:hover {
+            border-color: #c9aa5e;
+            box-shadow: 0 22px 30px -20px #b49450;
+            background: white;
+        }
+
+        .quality-icon {
+            font-size: 3rem;
+            color: #a9813e;
+            margin-bottom: 1rem;
+        }
+
+        .quality-card h4 {
+            font-size: 1.8rem;
+            font-weight: 550;
+            color: #0e3349;
+            border-bottom: 2px dotted #cdb282;
+            padding-bottom: 0.6rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .quality-card p {
+            font-size: 0.95rem;
+            color: #32506e;
+        }
+
+        /* citação motivacional em destaque */
+        .quote-section {
+            background: #082433;
+            color: #f3efdd;
+            padding: 3.5rem 2rem;
+            border-radius: 70px 20px 70px 20px;
+            margin: 4rem 0 3rem;
+            box-shadow: 0 20px 30px -12px #04293a, 0 0 0 4px #e4c573 inset;
+            text-align: center;
+        }
+
+        .quote-text {
+            font-size: 2.2rem;
+            font-weight: 300;
+            line-height: 1.4;
+            max-width: 800px;
+            margin: 0 auto;
+            quotes: "“" "”" "‘" "’";
+            position: relative;
+        }
+
+        .quote-text::before {
+            content: "“";
+            font-size: 6rem;
+            font-family: serif;
+            color: #bda153;
+            opacity: 0.5;
+            position: absolute;
+            left: -25px;
+            top: -25px;
+        }
+
+        .quote-author {
+            margin-top: 2rem;
+            font-size: 1.3rem;
+            font-weight: 400;
+            color: #ddc58b;
+            letter-spacing: 2px;
+        }
+
+        /* rodapé elegante */
+        .footer-message {
+            background: #ebf2fa;
+            border-radius: 120px 20px 120px 20px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
+            border: 1px solid #dbbf86;
+            box-shadow: 0 8px 0 #916e38, 0 10px 25px #0722351a;
+        }
+
+        .footer-message p {
+            font-size: 2rem;
+            font-weight: 400;
+            color: #133145;
+        }
+
+        .footer-message i {
+            color: #b49450;
+            margin: 0 8px;
+        }
+
+        .signature-line {
+            margin-top: 1.5rem;
+            font-size: 1.2rem;
+            color: #6b5e4b;
+            border-top: 2px solid #e3ca97;
+            display: inline-block;
+            padding-top: 0.8rem;
+        }
+
+        /* utilitários de espaçamento */
+        .small-divider {
+            width: 90px;
+            height: 2px;
+            background: #dac292;
+            margin: 2rem auto;
+        }
+
+        /* responsividade refinada */
+        @media (max-width: 650px) {
+            .page { padding: 2rem 1rem; }
+            .bio-text { font-size: 1.1rem; padding: 1.8rem; }
+            .quote-text { font-size: 1.8rem; }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="page">
+        <!-- cabeçalho -->
+        <div class="hero fade-up" id="hero">
+            <h1 class="hero-title"><span>Uma Mulher</span> que Inspira Vidas</h1>
+            <div class="subtitle">
+                <i class="fas fa-asterisk"></i> Feliz Dia da Mulher <i class="fas fa-asterisk"></i>
+            </div>
+        </div>
+
+        <!-- foto destacada (placeholder ou imagem real) -->
+        <div class="featured-image fade-up" id="foto">
+            <div class="image-frame">
+                <!-- Substitua o conteúdo abaixo pela foto da sua irmã -->
+                <!-- <div class="image-placeholder">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                </div> -->
+                <img src="../public/imagens/maninha.jpeg" alt="irmã professora">
+            </div>
+        </div>
+
+        <!-- texto sobre dedicação, inteligência, generosidade, inspiração -->
+        <div class="bio-text fade-up" id="bio">
+            <strong>Para minha maninha,</strong> que transforma o conhecimento em afeto.<br>
+            Sua <strong>dedicação</strong>, sua <strong>inteligência</strong> que ilumina caminhos, a <strong>generosidade</strong> que acolhe sem medida. <br>
+            Você é a prova viva de que educar é um ato de amor e coragem. <br>
+            <i class="fas fa-heart" style="color: #b49450; margin-top: 1rem; display: inline-block;"></i>
+        </div>
+
+        <!-- seção missão de vida (blocos) -->
+        <div class="mission-section fade-up" id="missao">
+            <h2 class="section-title">Missão de Vida</h2>
+            <div class="mission-grid">
+                <div class="mission-block">
+                    <div class="mission-icon"><i class="fas fa-chalkboard"></i></div>
+                    <h3>Ensinar</h3>
+                    <p>Mais do que conteúdos, ensina valores, respeito e esperança a cada aluno.</p>
+                </div>
+                <div class="mission-block">
+                    <div class="mission-icon"><i class="fas fa-hand-holding-heart"></i></div>
+                    <h3>Acolher</h3>
+                    <p>Estende a mão a quem precisa, dentro e fora da escola, com escuta e empatia.</p>
+                </div>
+                <div class="mission-block">
+                    <div class="mission-icon"><i class="fas fa-seedling"></i></div>
+                    <h3>Inspirar</h3>
+                    <p>Planta sementes de curiosidade e transforma realidades com paciência.</p>
+                </div>
+                <div class="mission-block">
+                    <div class="mission-icon"><i class="fas fa-lightbulb"></i></div>
+                    <h3>Iluminar</h3>
+                    <p>Mostra novos caminhos e faz cada um descobrir seu próprio potencial.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- cards de qualidades: sabedoria, paciência, liderança, inspiração -->
+        <h2 class="section-title fade-up" style="margin-bottom:0;">Qualidades que Admiro</h2>
+        <div class="qualities-grid fade-up" id="qualidades">
+            <div class="quality-card">
+                <div class="quality-icon"><i class="fas fa-book-open"></i></div>
+                <h4>Sabedoria</h4>
+                <p>Une conhecimento à sensibilidade, sempre com equilíbrio.</p>
+            </div>
+            <div class="quality-card">
+                <div class="quality-icon"><i class="fas fa-hourglass-half"></i></div>
+                <h4>Paciência</h4>
+                <p>Ensina quantas vezes forem necessárias, com doçura.</p>
+            </div>
+            <div class="quality-card">
+                <div class="quality-icon"><i class="fas fa-people-arrows"></i></div>
+                <h4>Liderança</h4>
+                <p>Conduz pelo exemplo, sem imposição, com firmeza gentil.</p>
+            </div>
+            <div class="quality-card">
+                <div class="quality-icon"><i class="fas fa-star"></i></div>
+                <h4>Inspiração</h4>
+                <p>Desperta o melhor em todos ao seu redor.</p>
+            </div>
+        </div>
+
+        <!-- citação motivacional em destaque -->
+        <div class="quote-section fade-up" id="citacao">
+            <div class="quote-text">
+                Educar é semear com sabedoria e colher com paciência.<br> 
+                Você faz isso com maestria e amor.
+            </div>
+            <div class="quote-author">— para você, minha maninha ❤️</div>
+        </div>
+
+        <!-- rodapé elegante com mensagem de admiração -->
+        <div class="footer-message fade-up" id="rodape">
+            <p>
+                <i class="fas fa-quote-left"></i> Admiro sua força, sua entrega e sua luz. <i class="fas fa-quote-right"></i>
+            </p>
+            <div class="signature-line">
+                Com orgulho e gratidão, no Dia da Mulher.
+            </div>
+            <!-- pequenos ícones -->
+            <div style="margin-top: 2rem; color: #b49450; font-size: 1.6rem;">
+                <i class="fas fa-asterisk"></i> <i class="fas fa-asterisk"></i> <i class="fas fa-asterisk"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- script para animações suaves ao rolar (fade-up) -->
+    <script>
+        (function() {
+            // seleciona todos os elementos com classe .fade-up
+            const fadeElements = document.querySelectorAll('.fade-up');
+            
+            // função para verificar visibilidade
+            function checkVisibility() {
+                fadeElements.forEach(el => {
+                    const rect = el.getBoundingClientRect();
+                    const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+                    // se o elemento está visível (com margem de 100px)
+                    if (rect.top < windowHeight - 80 && rect.bottom > 40) {
+                        el.classList.add('visible');
+                    } else {
+                        // opcional: remover classe se quiser repetir ao rolar? 
+                        // melhor manter após ficar visível, não removemos.
+                        // mas para entrada suave, adicionamos e não removemos.
+                    }
+                });
+            }
+
+            // ativar também elementos já na carga
+            window.addEventListener('load', () => {
+                checkVisibility();
+            });
+
+            // ativar no scroll
+            window.addEventListener('scroll', () => {
+                checkVisibility();
+            });
+
+            // forçar verificação após qualquer redimensionamento
+            window.addEventListener('resize', checkVisibility);
+
+            // executar uma vez imediatamente (pode haver elementos visíveis)
+            checkVisibility();
+
+            // Para elementos que ainda não apareceram, a classe será adicionada no scroll.
+        })();
+    </script>
+
+    <!-- pequeno ajuste para dar um ar ainda mais limpo -->
+    <div style="text-align:center; margin: 2rem auto 0; color: #a1a9b7; font-size:0.9rem;">
+        <i class="fas fa-feather-alt" style="color:#b49450;"></i> 
+    </div>
+</body>
+</html>

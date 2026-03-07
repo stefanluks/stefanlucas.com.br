@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para o Meu Amor | Feliz Dia da Mulher</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Montserrat:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --vermelho-suave: #d63031;
+            --rosa-claro: #f8a5c2;
+            --off-white: #fffafa;
+            --vinho: #6d214f;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #fff5f5 0%, #fed7e1 100%);
+            color: var(--vinho);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Corações Flutuantes */
+        .hearts-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .floating-heart {
+            position: absolute;
+            color: rgba(214, 48, 49, 0.15);
+            animation: floatUp 15s infinite linear;
+            font-size: 1.5rem;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(110vh) scale(0); opacity: 0; }
+            50% { opacity: 0.8; }
+            100% { transform: translateY(-10vh) scale(1.5); opacity: 0; }
+        }
+
+        /* Hero Section */
+        header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 5rem;
+            color: var(--vermelho-suave);
+            margin-bottom: 10px;
+            animation: fadeIn 2s ease;
+        }
+
+        .subtitle {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.5rem;
+            color: var(--vinho);
+            letter-spacing: 1px;
+        }
+
+        /* Foto Centralizada */
+        .photo-wrap {
+            margin-top: 40px;
+            padding: 15px;
+            background: white;
+            border-radius: 50%;
+            box-shadow: 0 15px 35px rgba(214, 48, 49, 0.2);
+            border: 2px dashed var(--rosa-claro);
+            animation: pulse 3s infinite ease-in-out;
+        }
+
+        .photo-wrap img {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Seção Emoção */
+        .love-text {
+            max-width: 700px;
+            margin: 80px auto;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .love-text h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+        }
+
+        /* Cartões Incríveis */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            transition: 0.4s;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.03);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(214, 48, 49, 0.1);
+            background: var(--off-white);
+        }
+
+        .card i {
+            font-size: 2.5rem;
+            color: var(--vermelho-suave);
+            margin-bottom: 15px;
+        }
+
+        /* Linha do Tempo */
+        .timeline {
+            max-width: 600px;
+            margin: 100px auto;
+            border-left: 2px solid var(--rosa-claro);
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .timeline-item {
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: "❤";
+            position: absolute;
+            left: -42px;
+            background: var(--rosa-claro);
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+        }
+
+        /* Contador */
+        .counter {
+            background: var(--vermelho-suave);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            margin: 80px 0;
+        }
+
+        .counter-grid {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .counter-item span {
+            display: block;
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        /* Botão */
+        .btn-love {
+            display: inline-block;
+            padding: 18px 40px;
+            background: var(--vermelho-suave);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: 0.3s;
+            box-shadow: 0 5px 20px rgba(214, 48, 49, 0.4);
+            margin-bottom: 100px;
+        }
+
+        .btn-love:hover {
+            transform: scale(1.05);
+            background: var(--vinho);
+            box-shadow: 0 8px 25px rgba(214, 48, 49, 0.6);
+        }
+
+        footer {
+            padding: 60px 20px;
+            background: rgba(214, 48, 49, 0.05);
+            text-align: center;
+        }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.02); } }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 3rem; }
+            .subtitle { font-size: 1.1rem; }
+            .photo-wrap img { width: 180px; height: 180px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hearts-bg" id="hearts-container"></div>
+
+    <header>
+        <h1>Feliz Dia da Mulher, Meu Amor</h1>
+        <p class="subtitle">Minha vida é mais feliz ao seu lado</p>
+        
+        <div class="photo-wrap">
+            <img src="../public/imagens/gih.jpeg" alt="Foto do Casal">
+        </div>
+    </header>
+
+    <section class="love-text">
+        <h2>Mais que parceira, minha vida.</h2>
+        <p>Hoje o dia é dedicado a você, mas sinto que o presente é meu por poder dividir a vida com uma mulher tão extraordinária. Sua força me inspira, sua doçura me acalma e sua parceria é o alicerce de todos os meus sonhos. Obrigado por ser minha melhor amiga e meu grande amor.</p>
+    </section>
+
+    <div class="cards-grid">
+        <div class="card">
+            <i class="fas fa-hand-holding-heart"></i>
+            <h3>Companheira</h3>
+            <p>Sempre presente, em cada passo e em cada desafio.</p>
+        </div>
+        <div class="card">
+            <i class="fas fa-gem"></i>
+            <h3>Rara</h3>
+            <p>Sua essência é única e ilumina tudo ao seu redor.</p>
+        </div>
+        <div class="card">
+            <i class="fas fa-smile-beam"></i>
+            <h3>Alegria</h3>
+            <p>O motivo dos meus sorrisos mais sinceros todos os dias.</p>
+        </div>
+    </div>
+
+    <section class="timeline">
+        <h3 style="margin-bottom: 40px; font-family: 'Playfair Display'; color: var(--vermelho-suave);">Nossa História</h3>
+        <div class="timeline-item">
+            <strong>O Primeiro Olhar</strong>
+            <p>Aquele instante onde tudo começou a mudar para melhor.</p>
+        </div>
+        <div class="timeline-item">
+            <strong>Grandes Conquistas</strong>
+            <p>Cada vitória nossa que celebramos de mãos dadas.</p>
+        </div>
+        <div class="timeline-item">
+            <strong>O Agora e o Sempre</strong>
+            <p>Construindo um futuro cheio de amor e cumplicidade.</p>
+        </div>
+    </section>
+
+    <section class="counter">
+        <div class="counter-grid">
+            <div class="counter-item">
+                <span>∞</span>
+                <p>Momentos Felizes</p>
+            </div>
+            <div class="counter-item">
+                <span>100%</span>
+                <p>Amor e Respeito</p>
+            </div>
+            <div class="counter-item">
+                <span>∞</span>
+                <p>Sonhos Juntos</p>
+            </div>
+        </div>
+    </section>
+
+    <div style="text-align: center;">
+        <a href="#" class="btn-love">Você é meu tudo ❤️</a>
+    </div>
+
+    <footer>
+        <p style="font-family: 'Great Vibes'; font-size: 2rem; color: var(--vermelho-suave);">Para sempre seu.</p>
+        <p style="margin-top: 10px; font-size: 0.9rem;">Com todo o amor do mundo, neste Dia da Mulher e em todos os outros.</p>
+    </footer>
+
+    <script>
+        // Gerador de corações aleatórios
+        const container = document.getElementById('hearts-container');
+        function createHeart() {
+            const heart = document.createElement('i');
+            heart.classList.add('fas', 'fa-heart', 'floating-heart');
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = (Math.random() * 5 + 10) + 's';
+            heart.style.opacity = Math.random();
+            container.appendChild(heart);
+            
+            setTimeout(() => { heart.remove(); }, 15000);
+        }
+        setInterval(createHeart, 800);
+    </script>
+</body>
+</html>
