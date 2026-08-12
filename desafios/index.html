@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio Fitinha</title>
+    <style>
+        :root {
+            --azul: #005C9E;
+            --azul-escuro: #003F73;
+            --preto: #111111;
+            --branco: #ffffff;
+            --cinza: #f4f7fb;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(135deg, var(--azul), var(--preto));
+            min-height: 100vh;
+            color: var(--branco);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+        }
+
+        .card {
+            background: var(--branco);
+            color: var(--preto);
+            max-width: 780px;
+            width: 100%;
+            border-radius: 24px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 20px 45px rgba(0,0,0,0.35);
+        }
+
+        .logo {
+            width: 260px;
+            max-width: 90%;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--azul-escuro);
+            font-size: 2.4rem;
+            margin-bottom: 12px;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: #444;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .info {
+            background: var(--cinza);
+            border-left: 5px solid var(--azul);
+            padding: 18px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .info p {
+            margin-bottom: 8px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            background: var(--azul);
+            color: var(--branco);
+            padding: 14px 24px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.2s;
+            min-width: 210px;
+        }
+
+        .btn:hover {
+            background: var(--azul-escuro);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: var(--preto);
+        }
+
+        .btn-outline:hover {
+            background: #333;
+        }
+
+        footer {
+            margin-top: 28px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        @media (max-width: 600px) {
+            .card {
+                padding: 28px 22px;
+            }
+
+            h1 {
+                font-size: 1.9rem;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="card">
+        <img src="../public/imagens/fitinha.png" alt="Logo Fitinha" class="logo">
+
+        <h1>Desafio Fitinha</h1>
+
+        <p class="subtitle">
+            Nesta atividade, você irá configurar o banco de dados PostgreSQL de uma plataforma de streaming já desenvolvida em Flask.
+        </p>
+
+        <section class="info">
+            <p><strong>Objetivo:</strong> criar as tabelas, inserir os dados iniciais e fazer o sistema funcionar localmente.</p>
+            <p><strong>Entrega:</strong> scripts SQL, prints do sistema funcionando e consulta do ranking.</p>
+            <p><strong>Tecnologias:</strong> PostgreSQL, Flask, SQL e pgAdmin.</p>
+        </section>
+
+        <div class="buttons">
+            <a href="./fitinha.pdf" class="btn" target="_blank">Ver documento</a>
+            <a href="./fitinha.zip" class="btn btn-outline" download>Baixar sistema</a>
+        </div>
+
+        <footer>
+            CFP SENAI Taquaralto • Banco de Dados
+        </footer>
+    </main>
+
+</body>
+</html>

@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual de Instalação - Rede Social</title>
+    <style>
+        :root {
+            --bg-principal: #0f172a;
+            --bg-card: #1e293b;
+            --texto-principal: #f8fafc;
+            --texto-secundario: #94a3b8;
+            --accent: #38bdf8;
+            --accent-hover: #0ea5e9;
+            --sucesso: #10b981;
+            --erro: #ef4444;
+            --borda: #334155;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-principal);
+            color: var(--texto-principal);
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar / Menu Lateral */
+        aside {
+            width: 280px;
+            background-color: var(--bg-card);
+            border-right: 1px solid var(--borda);
+            padding: 2rem 1rem;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+        }
+
+        .logo-area {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: var(--accent);
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .menu-nav {
+            list-style: none;
+        }
+
+        .menu-item {
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            color: var(--texto-secundario);
+            margin-bottom: 0.5rem;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .menu-item:hover, .menu-item.ativo {
+            background-color: var(--borda);
+            color: var(--texto-principal);
+        }
+
+        .menu-item.ativo {
+            border-left: 4px solid var(--accent);
+        }
+
+        /* Área de Conteúdo Principal */
+        main {
+            margin-left: 280px;
+            flex-grow: 1;
+            padding: 3rem;
+            max-width: 1000px;
+        }
+
+        header {
+            margin-bottom: 3rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            color: var(--texto-secundario);
+        }
+
+        /* Cards das Etapas */
+        .card-etapa {
+            background-color: var(--bg-card);
+            border: 1px solid var(--borda);
+            border-radius: 0.75rem;
+            padding: 2rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .etapa-titulo {
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 1px solid var(--borda);
+            padding-bottom: 0.5rem;
+        }
+
+        .instrucao-lista {
+            list-style: none;
+        }
+
+        .instrucao-item {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 1rem;
+            color: var(--texto-principal);
+            line-height: 1.6;
+        }
+
+        .instrucao-item::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--sucesso);
+            font-weight: bold;
+        }
+
+        /* Formatação de Código e Caminhos */
+        code, .path {
+            background-color: var(--bg-principal);
+            padding: 0.2rem 0.5rem;
+            border-radius: 0.25rem;
+            font-family: 'Courier New', Courier, monospace;
+            color: #f43f5e;
+            font-size: 0.95rem;
+        }
+
+        .path {
+            color: #fbbf24;
+        }
+
+        pre {
+            background-color: var(--bg-principal);
+            padding: 1.25rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+            border: 1px solid var(--borda);
+            margin: 1rem 0;
+        }
+
+        pre code {
+            color: #38bdf8;
+            padding: 0;
+            background: none;
+        }
+
+        /* Alertas e Notas */
+        .alerta {
+            background-color: rgba(239, 68, 68, 0.1);
+            border-left: 4px solid var(--erro);
+            padding: 1rem;
+            border-radius: 0 0.5rem 0.5rem 0;
+            margin-top: 1rem;
+        }
+
+        .alerta-titulo {
+            color: var(--erro);
+            font-weight: bold;
+            margin-bottom: 0.25rem;
+        }
+
+        .btn-link{
+            width: 150px;
+            height: 25px;
+            background-color: #0ea5e9;
+            color: white;
+            text-decoration: none;
+            padding: 5px;
+            border-radius: 10px;
+            margin: 20px 0px;
+        }
+
+        .nota-sucesso {
+            background-color: rgba(16, 185, 129, 0.1);
+            border-left: 4px solid var(--sucesso);
+            padding: 1rem;
+            border-radius: 0 0.5rem 0.5rem 0;
+            margin-top: 1rem;
+        }
+
+        /* Responsividade Básica */
+        @media (max-width: 768px) {
+            body { flex-direction: column; }
+            aside { width: 100%; height: auto; position: relative; }
+            main { margin-left: 0; padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <aside>
+        <div class="logo-area">
+            <span>🌐</span> RedeX Installer
+        </div>
+        <ul class="menu-nav">
+            <li class="menu-item ativo" onclick="scrollToSection('etapa1')">1. Preparação do Projeto</li>
+            <li class="menu-item" onclick="scrollToSection('etapa2')">2. Banco de Dados SQL</li>
+            <li class="menu-item" onclick="scrollToSection('etapa3')">3. Execução & Login</li>
+            <li class="menu-item" onclick="scrollToSection('etapa4')">4. Importação de Dados</li>
+        </ul>
+    </aside>
+
+    <main>
+        <header>
+            <h1>Manual de Instalação</h1>
+            <p>Siga os passos abaixo para configurar o ambiente e executar a sua Rede Social.</p>
+        </header>
+        
+        <section id="etapa1" class="card-etapa">
+            <div class="etapa-titulo"><span>01.</span> Preparação e Arquivos</div>
+            <ul class="instrucao-lista">
+                <li class="instrucao-item">
+                    Abra a pasta do DRIVE e atualize seus arquivos: <a class="btn-link" href="https://drive.google.com/drive/folders/1DfC2ImPD__WQY1yxZL77ZNhc79K7ysJU?usp=sharing" target="_blank">Pasta do drive</a>
+                </li>
+                <li class="instrucao-item">Abra a pasta do seu projeto no VSCode[cite: 3]. Caminho sugerido: <span class="path">Documentos/seu_nome/sistema06/</span>[cite: 4]. Pode usar o clique direito do mouse e selecionar <strong>"Abrir com Code"</strong>[cite: 5].</li>
+                <li class="instrucao-item">Acesse o sistema atualizado na pasta compartilhada do Drive[cite: 2, 6]. <strong>Atualize TODOS os arquivos</strong> copiando o conteúdo para o seu projeto local[cite: 6].</li>
+                <li class="instrucao-item">Crie os novos arquivos HTML estruturais dentro da pasta <span class="path">templates/</span>[cite: 7]:
+                    <br>• <code>rede.html</code> [cite: 8]
+                    <br>• <code>rede_login.html</code> [cite: 9]
+                </li>
+                <li class="instrucao-item">Dentro da pasta <span class="path">static/config/</span>, crie o arquivo de estilização[cite: 10]:
+                    <br>• <code>rede.css</code> [cite: 11]
+                </li>
+                <li class="instrucao-item">Confirme se o arquivo principal <code>sistema.py</code> está devidamente atualizado[cite: 12].</li>
+            </ul>
+        </section>
+
+        <section id="etapa2" class="card-etapa">
+            <div class="etapa-titulo"><span>02.</span> Configuração do Banco de Dados</div>
+            <ul class="instrucao-lista">
+                <li class="instrucao-item">Abra o <strong>pgAdmin</strong> [cite: 13] e crie um novo banco de dados chamado <code>redeX</code>[cite: 14].</li>
+                <li class="instrucao-item">Abra a ferramenta de Query e execute os comandos SQL abaixo, <strong>bloco por bloco</strong>[cite: 15]:</li>
+            </ul>
+
+            <pre><code>-- 1. Tabela de Usuários
+create table usuarios(
+    id serial primary key,
+    username text,
+    senha text
+);
+
+-- 2. Tabela de Postagens
+create table posts(
+    id serial primary key,
+    conteudo text,
+    id_autor int,
+    foreign key (id_autor) references usuarios(id)
+);
+
+-- 3. Tabela de Curtidas
+create table curtida(
+    id serial primary key,
+    id_curtiu int,
+    id_post int,
+    foreign key (id_curtiu) references usuarios(id),
+    foreign key (id_post) references posts(id)
+);
+
+-- 4. Inserindo Usuário Administrador (Senha com Hash criptografado)
+insert into usuarios (username, senha) values ('admin', 'sutvegfhacnp132435');
+
+-- 5. Inserindo Postagem de Teste
+insert into posts (conteudo, id_autor) values ('Testandooooo0', 1);</code></pre>
+            
+            <div class="nota-sucesso">
+                💡 <strong>Nota sobre Segurança:</strong> Repare que no comando <code>INSERT</code> do administrador, a senha original <code>stefan123</code> foi inserida criptografada usando um código de caracteres aleatórios (Hash)[cite: 34, 38, 42].
+            </div>
+        </section>
+
+        <section id="etapa3" class="card-etapa">
+            <div class="etapa-titulo"><span>03.</span> Execução do Sistema & Teste de Login</div>
+            <ul class="instrucao-lista">
+                <li class="instrucao-item">No VSCode, abra o terminal integrado pressionando as teclas <kbd>Ctrl + J</kbd>[cite: 39].</li>
+                <li class="instrucao-item">Inicie o servidor digitando o comando: <code>python sistema.py</code> e aperte Enter[cite: 39].</li>
+                <li class="instrucao-item">Abra o Google Chrome e digite diretamente na barra de endereços o local: <code>localhost:5000</code> (não use a barra de pesquisas)[cite: 40].</li>
+                <li class="instrucao-item">Clique no botão para acessar a rede social [cite: 41] e realize o login com as credenciais padrão[cite: 42]:
+                    <br>• <strong>User:</strong> <code>admin</code> [cite: 42]
+                    <br>• <strong>Senha:</strong> <code>stefan123</code> [cite: 42]
+                </li>
+                <li class="instrucao-item">O sistema deverá carregar a interface da rede com a logo <strong>REDE X05</strong>[cite: 43, 48].</li>
+            </ul>
+
+            <div class="nota-sucesso">
+                🎯 <strong>Desafio Prático:</strong> Use comandos SQL no pgAdmin para cadastrar o seu perfil e o de mais 2 amigos da turma[cite: 50, 51]. Utilize o programa gerador de Hash para embutir as senhas da forma correta[cite: 52].
+            </div>
+        </section>
+
+        <section id="etapa4" class="card-etapa">
+            <div class="etapa-titulo"><span>04.</span> Importação de Dados em Massa</div>
+            <ul class="instrucao-lista">
+                <li class="instrucao-item">Baixe o arquivo de dados chamado <code>aluninhos_pirigosos.csv</code>[cite: 55].</li>
+                <li class="instrucao-item">No pgAdmin, clique com o botão direito sobre a tabela <code>posts</code> e selecione a opção <strong>Import/Export data</strong>[cite: 56].</li>
+                <li class="instrucao-item">Deixe marcado o botão para <strong>Import</strong> [cite: 63], selecione o caminho do arquivo CSV baixado no campo <em>Filename</em> [cite: 57] e mude o Encoding para <strong>UTF8</strong>[cite: 70]. Clique em OK[cite: 57, 83].</li>
+                <li class="instrucao-item">Atualize a página do seu navegador para visualizar todas as novas publicações vinculadas aos usuários[cite: 84]. Tudo funcionando? Apresente o resultado para o professor[cite: 85]!</li>
+            </ul>
+
+            <div class="alerta">
+                <div class="alerta-titulo">⚠️ Tratamento de Erros (Process Failed):</div>
+                Se a importação falhar, clique no botão <strong>"View Processes"</strong> no balão de erro. Em seguida, clique no ícone de documento (ao lado do número do PID) para visualizar o relatório detalhado do erro apresentado pelo PostgreSQL[cite: 89, 91].
+            </div>
+        </section>
+    </main>
+
+    <script>
+        function scrollToSection(id) {
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+            
+            // Atualiza classe ativa no menu
+            document.querySelectorAll('.menu-item').forEach(item => {
+                item.classList.remove('ativo');
+            });
+            event.currentTarget.classList.add('ativo');
+        }
+    </script>
+</body>
+</html>
