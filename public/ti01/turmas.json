@@ -1,0 +1,30 @@
+[
+  {
+    "codigo": "24.05",
+    "curso": "Técnico em Desenvolvimento de Sistemas",
+    "unidade_curricular": "Programação de Aplicativos",
+    "sala": "TI 01",
+    "horario": "08:00 - 12:00"
+  },
+  {
+    "codigo": "24.06",
+    "curso": "Técnico em Desenvolvimento de Sistemas",
+    "unidade_curricular": "Banco de Dados",
+    "sala": "TI 01",
+    "horario": "108:00 - 12:00"
+  },
+  {
+    "codigo": "24.02",
+    "curso": "Técnico em Eletrotécnica",
+    "unidade_curricular": "Instalações Elétricas Prediais",
+    "sala": "Laboratório de Elétrica",
+    "horario": "08:00 - 12:00"
+  },
+  {
+    "codigo": "TEC.2025.1.425",
+    "curso": "Técnico em Informática",
+    "unidade_curricular": "Montagem e manutenção",
+    "sala": "TI 02",
+    "horario": "14:00 - 18:00"
+  }
+]
