@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Manual interativo para criar um app Flutter com a Rick and Morty API">
+  <title>Manual Flutter Rick and Morty</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <main id="deck" class="deck">
+    <div class="glow"></div>
+    <header>
+      <div class="brand"><b>RM</b><span><strong>Flutter Lab</strong><small>Manual interativo</small></span></div>
+      <em id="stage"></em>
+      <div class="count"><b id="current">01</b> / <span id="total"></span></div>
+    </header>
+    <section id="slide" class="slide"></section>
+    <footer>
+      <button id="previous">← Anterior</button>
+      <div class="progress"><i id="bar"></i><small>Use as setas ← →</small></div>
+      <button id="next" class="next">Próxima →</button>
+    </footer>
+  </main>
+  <div id="toast" class="toast">✓ Código copiado!</div>
+  <div id="overlay" class="overlay hidden" role="dialog" aria-modal="true">
+    <div class="modal">
+      <div class="modalTop"><div><small>CÓDIGO COMPLETO</small><strong id="modalFile"></strong></div><button id="closeModal">×</button></div>
+      <pre><code id="modalCode"></code></pre>
+      <button id="modalCopy" class="copy">⧉ Clique aqui para copiar o código</button>
+    </div>
+  </div>
+  <script src="js/script.js"></script>
+</body>
+</html>
