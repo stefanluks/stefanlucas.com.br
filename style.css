@@ -131,6 +131,11 @@ section{
   width: 100% !important;
   border-radius: 0px 5px 10px 0px !important;
   transform: skewY(-3deg);
+  justify-content: start !important;
+  align-items: start !important;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 20px;
 }
 
 .projeto{
@@ -174,4 +179,29 @@ section{
   transform: skewY(-3deg);
   margin: 10px auto;
   font-family: demonized;
+}
+
+.title-proj{
+  font-size: 25px;
+  padding: 0px;
+  border-bottom: 5px solid var(--red-dark);
+  margin-bottom: 5px;
+}
+.title-proj b{
+  color: var(--red);
+}
+
+.skills{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.img-icone-hab{
+  width: 65px;
+  height: 65px;
+  margin: 3px;
+  border-radius: 10px;
+  object-fit: cover;
 }
