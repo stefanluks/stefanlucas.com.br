@@ -123,12 +123,14 @@ section{
 .lista-projetos{
   width: 100%;
   display: flex;
-  align-items: center;
+  align-items: start;
   justify-content: center;
 }
 
 .habilidades{
   width: 100% !important;
+  border-radius: 0px 5px 10px 0px !important;
+  transform: skewY(-3deg);
 }
 
 .projeto{
@@ -140,5 +142,36 @@ section{
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: demonized;
+}
+
+.projeto:nth-child(1){
+  height: 220px;
+  margin-top: 5px;
+  border-radius: 10px !important;
+  transform: skewY(-3deg);
+}
+
+.projeto:nth-child(2){
+  border-radius: 10px !important;
+  height: 250px;
+  margin-top: -10px;
+  transform: skewY(-3deg);
+}
+
+.projeto:nth-child(3){
+  border-radius: 10px 20px !important;
+  height: 300px;
+  margin-top: -25px;
+  transform: skewY(-3deg);
+}
+
+.titulo-secao{
+  width: 80%;
+  height: 25px;
+  font-size: 25px;
+  /* background-color: var(--red-dark); */
+  transform: skewY(-3deg);
+  margin: 10px auto;
   font-family: demonized;
 }
