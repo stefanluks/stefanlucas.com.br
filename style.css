@@ -55,6 +55,10 @@ section{
   animation: intro-nome 3s forwards;
 }
 
+.home-box h2 b{
+  color: var(--red);
+}
+
 @keyframes intro-nome {
   from{letter-spacing: -15px;}
   to{ letter-spacing: 2px;}
@@ -103,8 +107,8 @@ section{
 }
 
 .home-box .linha:hover{
-  background-color: cornflowerblue;
-  color: white;
+  background-color: var(--red-dark);
+  color: var(--muted);
 }
 
 #projetos{
@@ -284,4 +288,90 @@ section{
   color: white;
   border-radius: 10px;
   margin-bottom: 3px;
+}
+
+
+#contato{
+  background-color: var(--red-dark);
+  min-height: 200px !important;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  justify-content: end;
+  position: relative;
+}
+
+#contato footer{
+  width: 100%;
+  z-index: 4;
+  height: 90%;
+  margin-top: 30px;
+  background-color: var(--red);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding-bottom: 20px;
+}
+
+#contato::after{
+  display: block;
+  content: '';
+  z-index: 3;
+  position: absolute;
+  top: -10px;
+  width: 100%;
+  height: 50px;
+  background-color: var(--red-dark);
+  transform: skewY(2deg);
+}
+
+footer a.img{
+  width: 50%;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+footer a img{
+  width: 50px;
+}
+
+footer .contatos{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+footer a{
+  text-decoration: none;
+  color: var(--muted);
+  font-weight: bold;
+  cursor: pointer;
+  background-color: var(--bg);
+  width: 70%;
+  margin: 3px 0px;
+  padding: 8px 5px;
+  border-radius: 10px;
+  transition: .7s;
+}
+
+footer a:hover{
+  background-color: var(--muted);
+  color: var(--black);
+}
+
+.desenvolvimento{
+  width: 100%;
+  /* margin-top: 30px; */
+  background-color: var(--bg);
+  font-size: 15px;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0px;
 }
