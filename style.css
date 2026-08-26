@@ -30,6 +30,7 @@ body {
 }
 
 section{
+  position: relative;
   width: 100%;
   min-height: 100vh;
   display: flex;
@@ -137,6 +138,7 @@ section{
   padding: 20px;
   position: relative;
   cursor: pointer;
+  transition: 1s;
 }
 
 .projeto{
@@ -232,4 +234,43 @@ section{
   justify-content: center;
   font-size: 50px;
   color: #8d000079;
+}
+
+.habilidades.jogavel{
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 99;
+  position: absolute;
+  transform: skewY(0deg);
+  border: none;
+  display: flex;
+  align-items: center !important;
+  justify-content: center !important;
+  background-color: rgb(37, 37, 37);
+}
+
+.habilidades.jogavel:hover > .play{
+  display: none;
+}
+
+.habilidades.jogavel canvas{
+  width: 80%;
+  height: 80%;
+  border-radius: 10px;
+  box-shadow: 0 0 10px;
+}
+
+.habilidades.jogavel .btns-game{
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.habilidades.jogavel .btns-game div{
+  padding: 10px;
+  background-color: var(--red-dark);
+  color: white;
+  border-radius: 10px;
+  margin-bottom: 3px;
 }
