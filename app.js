@@ -8,11 +8,11 @@ window.onload = () => {
     const habilidade = document.querySelector(".habilidades");
     const jogoHabilidade = new HabilidadeGame(document.createElement("canvas"));
     habilidade.addEventListener("click", () => {
-        habilidade.classList.add("jogavel");
-        setTimeout(() => {
-            habilidade.innerHTML = `<div class="btns-game"><div>Reiniciar</div><div>Fechar</div></div>`;
-            habilidade.appendChild(jogoHabilidade.getCanvas());
-            jogoHabilidade.start();
-        }, 1000);
+        // habilidade.classList.add("jogavel");
+        // setTimeout(() => {
+        //     habilidade.innerHTML = `<div class="btns-game"><div>Reiniciar</div><div>Fechar</div></div>`;
+        //     habilidade.appendChild(jogoHabilidade.getCanvas());
+        //     jogoHabilidade.start();
+        // }, 1000);
     })
 }

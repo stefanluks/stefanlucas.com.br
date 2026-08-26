@@ -142,15 +142,20 @@ section{
 }
 
 .projeto{
+  text-decoration: none;
+  color: white;
   margin: 20px;
   border: 3px solid white;
   border-radius:20px;
   min-width: 30%;
   min-height: 200px;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: start;
   font-family: demonized;
+  box-sizing: border-box;
+  padding: 10px;
 }
 
 .projeto:nth-child(1){
@@ -174,6 +179,11 @@ section{
   transform: skewY(-3deg);
 }
 
+.projeto .img-card{
+  width: 50%;
+  border-radius: 10px;
+}
+
 .titulo-secao{
   width: 80%;
   height: 25px;
@@ -185,7 +195,8 @@ section{
 }
 
 .title-proj{
-  font-size: 25px;
+  width: 100%;
+  font-size: 20px;
   padding: 0px;
   border-bottom: 5px solid var(--red-dark);
   margin-bottom: 5px;
