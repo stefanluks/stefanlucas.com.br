@@ -103,7 +103,7 @@ section{
   0%{width: 0px; height: 0px; font-size: 0px;}
   25%{width: 50%; height: 0px; font-size: 0px;}
   50%{width: 50%; height: 25px; font-size: 0px;}
-  100%{width: 50%; height: 25px; font-size: 18px;}
+  100%{width: 70%; height: 25px; font-size: 18px;}
 }
 
 .home-box .linha:hover{
@@ -185,6 +185,8 @@ section{
 
 .projeto .img-card{
   width: 50%;
+  height: 70%;
+  object-fit: cover;
   border-radius: 10px;
 }
 
@@ -374,4 +376,33 @@ footer a:hover{
   align-items: center;
   justify-content: center;
   padding: 10px 0px;
+}
+
+@media screen and (max-width: 767px){
+  .home-box{
+    width: 95%;
+  }
+  .home-box h2{
+    text-align: center;
+    width: 100%;
+    font-size: 45px;
+  }
+
+  .projeto.habilidades{
+    width: 95%;
+    height: max-content;
+  }
+  .lista-projetos{
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    height: calc(400px * 3);
+  }
+  .projeto{
+    width: 100%;
+    margin: 20px 0px !important; 
+  }
+  .projeto .img-card{
+    height: 70%;
+  }
 }
