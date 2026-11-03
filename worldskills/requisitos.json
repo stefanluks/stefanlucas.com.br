@@ -1,0 +1,207 @@
+{
+  "app": {
+    "nome": "Catálogo de Cursos SENAI Taquaralto",
+    "unidade": "Taquaralto - Centro de Formação Profissional Senador João Ribeiro",
+    "json_url": "https://stefanlucas.com.br/worldskills/requisitos.json"
+  },
+  "banners": [
+    {
+      "id": 1,
+      "imagem": "https://stefanlucas.com.br/worldskills/carrossel/banner_01.jfif",
+      "descricao": "Banner institucional SENAI"
+    },
+    {
+      "id": 2,
+      "imagem": "https://stefanlucas.com.br/worldskills/carrossel/banner_02.png",
+      "descricao": "Banner de cursos e oportunidades SENAI"
+    },
+    {
+      "id": 3,
+      "imagem": "https://stefanlucas.com.br/worldskills/carrossel/banner_03.png",
+      "descricao": "Banner da unidade SENAI Taquaralto"
+    }
+  ],
+  "cursos": [
+    {
+      "id": 1,
+      "nome": "Boas Práticas de Manutenção em Sistemas de Ar Condicionado do Tipo Spl - 32H",
+      "imagem": "https://stefanlucas.com.br/worldskills/images/refrigeracao.png",
+      "pre_requisitos": [
+        "Ensino fundamental completo",
+        "Idade mínima: 18 anos",
+        "Comprovar experiência profissional mínima de 3 (três) anos com serviços no setor de refrigeração e ar-condicionado, por meio de carteira de trabalho ou declaração escrita pelo próprio aluno"
+      ],
+      "vagas": 16,
+      "horario": "19:00 - 22:00",
+      "realizacao": {
+        "inicio": "03/11/2026",
+        "fim": "13/11/2026"
+      },
+      "investimento": "GRATUITO",
+      "observacoes": []
+    },
+    {
+      "id": 2,
+      "nome": "Informática Básica - 60h",
+      "imagem": "https://stefanlucas.com.br/worldskills/ti.png",
+      "pre_requisitos": [
+        "Idade mínima: a partir de 14 anos",
+        "Escolaridade mínima: Ensino Fundamental I Completo"
+      ],
+      "vagas": 30,
+      "horario": "19:00 - 22:00",
+      "realizacao": {
+        "inicio": "03/11/2026",
+        "fim": "30/11/2026"
+      },
+      "investimento": "PAGO - R$ 193,00 - 1x no boleto ou 3x no cartão de crédito",
+      "observacoes": []
+    },
+    {
+      "id": 3,
+      "nome": "Aperfeiçoamento em Ferramentas de Gestão com Aplicação à Inteligência - 20H",
+      "imagem": "https://stefanlucas.com.br/worldskills/images/gestao.png",
+      "pre_requisitos": [
+        "Idade mínima: 16 anos",
+        "Ensino fundamental completo",
+        "Conhecimentos básicos em T.I"
+      ],
+      "vagas": 30,
+      "horario": "14:00 - 18:00",
+      "realizacao": {
+        "inicio": "16/11/2026",
+        "fim": "23/11/2026"
+      },
+      "investimento": "GRATUITO",
+      "observacoes": [
+        "Aulas: segunda a quarta-feira"
+      ]
+    },
+    {
+      "id": 4,
+      "nome": "Fabricação de Boneca em Tecido - 60H",
+      "imagem": "https://stefanlucas.com.br/worldskills/images/costura.png",
+      "pre_requisitos": [
+        "Idade mínima: 14 anos",
+        "Escolaridade mínima: Ensino Fundamental incompleto",
+        "Possuir conhecimentos básicos na área da costura"
+      ],
+      "vagas": 20,
+      "horario": "19:00 - 22:00",
+      "realizacao": {
+        "inicio": "16/11/2026",
+        "fim": "11/12/2026"
+      },
+      "investimento": "GRATUITO",
+      "observacoes": [
+        "Ministrado - AURENY II"
+      ]
+    },
+    {
+      "id": 5,
+      "nome": "Técnico em Cibersegurança - 1200h",
+      "imagem": "https://stefanlucas.com.br/worldskills/ti.png",
+      "pre_requisitos": [
+        "Ter concluído o Ensino Médio ou comprovar estar regularmente matriculado em 2027 no 2º ou 3º ano do Ensino Médio",
+        "Certidão de Nascimento ou Casamento",
+        "Carteira de Identidade (RG) ou Carteira Nacional de Habilitação (CNH)",
+        "Cadastro de Pessoa Física - CPF, exceto se apresentar a CNH",
+        "Declaração de Matrícula atualizada ou Declaração de Conclusão do Ensino Médio (para candidatos que não concluíram o Ensino Médio ou concluíram em data recente e ainda não possuem o certificado)",
+        "Histórico e Certificado de Conclusão do Ensino Médio (se já concluído)"
+      ],
+      "vagas": null,
+      "horario": "14:00 - 18:00",
+      "realizacao": {
+        "inicio": "01/02/2027",
+        "fim": "19/12/2028"
+      },
+      "investimento": "GRATUIDADE REGIMENTAL",
+      "observacoes": []
+    },
+    {
+      "id": 6,
+      "nome": "Técnico em Desenvolvimento de Sistemas - 1200h",
+      "imagem": "https://stefanlucas.com.br/worldskills/ti.png",
+      "pre_requisitos": [
+        "Ter concluído o Ensino Médio ou comprovar estar regularmente matriculado em 2027 no 2º ou 3º ano do Ensino Médio",
+        "Certidão de Nascimento ou Casamento",
+        "Carteira de Identidade (RG) ou Carteira Nacional de Habilitação (CNH)",
+        "Cadastro de Pessoa Física - CPF, exceto se apresentar a CNH",
+        "Declaração de Matrícula atualizada ou Declaração de Conclusão do Ensino Médio (para candidatos que não concluíram o Ensino Médio ou concluíram em data recente e ainda não possuem o certificado)",
+        "Histórico e Certificado de Conclusão do Ensino Médio (se já concluído)"
+      ],
+      "vagas": null,
+      "horario": "14:00 - 18:00",
+      "realizacao": {
+        "inicio": "01/02/2027",
+        "fim": "18/12/2028"
+      },
+      "investimento": "GRATUIDADE REGIMENTAL",
+      "observacoes": []
+    },
+    {
+      "id": 7,
+      "nome": "Técnico em Logística",
+      "imagem": "https://stefanlucas.com.br/worldskills/logistica.png",
+      "pre_requisitos": [
+        "Ter concluído o Ensino Médio ou comprovar estar regularmente matriculado em 2027 no 2º ou 3º ano do Ensino Médio",
+        "Certidão de Nascimento ou Casamento",
+        "Carteira de Identidade (RG) ou Carteira Nacional de Habilitação (CNH)",
+        "Cadastro de Pessoa Física - CPF, exceto se apresentar a CNH",
+        "Declaração de Matrícula atualizada ou Declaração de Conclusão do Ensino Médio (para candidatos que não concluíram o Ensino Médio ou concluíram em data recente e ainda não possuem o certificado)",
+        "Histórico e Certificado de Conclusão do Ensino Médio (se já concluído)"
+      ],
+      "vagas": null,
+      "horario": "14:00 - 18:00",
+      "realizacao": {
+        "inicio": "01/02/2027",
+        "fim": "18/12/2028"
+      },
+      "investimento": "GRATUIDADE REGIMENTAL",
+      "observacoes": []
+    },
+    {
+      "id": 8,
+      "nome": "Técnico em Refrigeração e Climatização",
+      "imagem": "https://stefanlucas.com.br/worldskills/refrigeracao.png",
+      "pre_requisitos": [
+        "Ter concluído o Ensino Médio ou comprovar estar regularmente matriculado em 2027 no 2º ou 3º ano do Ensino Médio",
+        "Certidão de Nascimento ou Casamento",
+        "Carteira de Identidade (RG) ou Carteira Nacional de Habilitação (CNH)",
+        "Cadastro de Pessoa Física - CPF, exceto se apresentar a CNH",
+        "Declaração de Matrícula atualizada ou Declaração de Conclusão do Ensino Médio (para candidatos que não concluíram o Ensino Médio ou concluíram em data recente e ainda não possuem o certificado)",
+        "Histórico e Certificado de Conclusão do Ensino Médio (se já concluído)"
+      ],
+      "vagas": null,
+      "horario": "19:00 - 22:00",
+      "realizacao": {
+        "inicio": "01/02/2027",
+        "fim": "18/12/2028"
+      },
+      "investimento": "PAGO - 24 parcelas mensais de R$ 350,00",
+      "observacoes": []
+    }
+  ],
+  "contatos": {
+    "telefone": "+55 (63) 3229-5770",
+    "whatsapp": "https://wa.me/+556332295770",
+    "redes_sociais": [
+      {
+        "nome": "Facebook",
+        "url": "https://www.facebook.com/senaitocantins/?locale=pt_BR"
+      },
+      {
+        "nome": "Instagram",
+        "url": "https://www.instagram.com/senaitocantins/"
+      },
+      {
+        "nome": "LinkedIn",
+        "url": "https://www.linkedin.com/company/senai-tocantins/"
+      },
+      {
+        "nome": "TikTok",
+        "url": "https://www.tiktok.com/discover/senai-palmas-tocantins"
+      }
+    ]
+  }
+}
