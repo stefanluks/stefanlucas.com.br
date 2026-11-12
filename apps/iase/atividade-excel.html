@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade Prática: Controle de Vendas no Excel</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- SheetJS para exportação real de Excel (.xlsx) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 h-full flex flex-col min-h-screen">
+
+    <header class="bg-indigo-700 text-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="flex items-center space-x-3">
+                <div class="bg-indigo-600 p-3 rounded-xl border border-indigo-500 shadow-inner">
+                    <i class="fa-solid fa-file-excel text-3xl text-emerald-300"></i>
+                </div>
+                <div>
+                    <span class="bg-indigo-500/50 text-emerald-200 text-xs font-semibold px-2.5 py-1 rounded-full uppercase tracking-wider">Módulo Excel Intermediário</span>
+                    <h1 class="text-2xl sm:text-3xl font-bold tracking-tight mt-1">Controle de Vendas da Loja</h1>
+                </div>
+            </div>
+            <!-- Botão de Download da Planilha -->
+            <a href="base-atividade.xlsx" class="flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold px-5 py-3 rounded-xl shadow-lg transition duration-200 transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer">
+                <i class="fa-solid fa-download text-lg"></i>
+                <span>Baixar Planilha Base</span>
+            </a>
+        </div>
+    </header>
+
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+        
+        <!-- Apresentação / Card de boas-vindas -->
+        <section class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200 relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-indigo-50 rounded-full blur-2xl -mr-10 -mt-10 pointer-events-none"></div>
+            <div class="relative z-10">
+                <h2 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+                    <i class="fa-solid fa-graduation-cap text-indigo-600"></i> Sobre a Atividade
+                </h2>
+                <p class="mt-2 text-slate-600 text-sm sm:text-base leading-relaxed">
+                    Nesta atividade prática, você aplicará conhecimentos fundamentais e avançados de planilhas eletrônicas. O cenário simula o controle de vendas de uma equipe comercial. Siga cada etapa de formatação, cálculos automáticos, aplicação da função condicional <code class="bg-slate-100 text-indigo-600 px-1.5 py-0.5 rounded font-mono text-sm">SE</code> e organização final dos dados.
+                </p>
+            </div>
+        </section>
+
+        <!-- Grade com as Instruções (Grid de Passos) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+            <!-- Parte 1: Formatação Visual -->
+            <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 flex flex-col justify-between hover:border-indigo-200 transition">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="bg-indigo-50 text-indigo-700 font-bold text-xs px-3 py-1 rounded-full border border-indigo-100">Passo 1</span>
+                        <i class="fa-solid fa-paintbrush text-indigo-500 text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900">Formatação Visual</h3>
+                    <ul class="mt-3 space-y-2 text-sm text-slate-600">
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-circle-check text-emerald-500 mt-1"></i>
+                            <span><strong>Cabeçalho:</strong> Destaque a primeira linha com cor de fundo à sua escolha, texto em negrito e cor branca.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-circle-check text-emerald-500 mt-1"></i>
+                            <span><strong>Valores:</strong> Formate toda a coluna <em>Preço Unitário</em> para o formato padrão de <strong>Moeda (R$)</strong>.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-circle-check text-emerald-500 mt-1"></i>
+                            <span><strong>Alinhamento:</strong> Centralize as colunas <em>ID Venda</em> e <em>Qtd Vendida</em>.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-circle-check text-emerald-500 mt-1"></i>
+                            <span><strong>Bordas:</strong> Aplique "Todas as Bordas" na tabela para um acabamento profissional.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Parte 2: Cálculos -->
+            <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 flex flex-col justify-between hover:border-indigo-200 transition">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="bg-indigo-50 text-indigo-700 font-bold text-xs px-3 py-1 rounded-full border border-indigo-100">Passo 2</span>
+                        <i class="fa-solid fa-calculator text-indigo-500 text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900">Cálculos Automáticos</h3>
+                    <ul class="mt-3 space-y-2 text-sm text-slate-600">
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-circle-check text-emerald-500 mt-1"></i>
+                            <span><strong>Nova Coluna:</strong> Crie a coluna <strong>F</strong> com o título <em>Valor Total</em>.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-circle-check text-emerald-500 mt-1"></i>
+                            <span><strong>Fórmula de Multiplicação:</strong> Na célula <code class="bg-slate-100 text-indigo-600 px-1 font-mono">F2</code>, multiplique a quantidade pelo preço unitário (<code class="bg-slate-100 text-indigo-600 px-1 font-mono">=D2*E2</code>).</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-circle-check text-emerald-500 mt-1"></i>
+                            <span><strong>Preenchimento:</strong> Arraste a fórmula para as demais linhas e formate o resultado como Moeda (R$).</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Parte 3: Função SE -->
+            <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 flex flex-col justify-between hover:border-indigo-200 transition">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="bg-indigo-50 text-indigo-700 font-bold text-xs px-3 py-1 rounded-full border border-indigo-100">Passo 3</span>
+                        <i class="fa-solid fa-code-branch text-indigo-500 text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900">Uso da Função Condicional SE</h3>
+                    <ul class="mt-3 space-y-2 text-sm text-slate-600">
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-circle-check text-emerald-500 mt-1"></i>
+                            <span><strong>Nova Coluna:</strong> Crie a coluna <strong>G</strong> com o título <em>Status da Venda</em>.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-circle-check text-emerald-500 mt-1"></i>
+                            <span><strong>Condição:</strong> Se o <em>Valor Total</em> for maior ou igual a <strong>R$ 1.500,00</strong>, exiba <strong>"Meta Atingida"</strong>; caso contrário, <strong>"Abaixo da Meta"</strong>.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-circle-check text-emerald-500 mt-1"></i>
+                            <span><strong>Sintaxe recomendada:</strong> <code class="bg-slate-100 text-indigo-600 px-1.5 py-0.5 rounded font-mono text-xs">=SE(F2>=1500; "Meta Atingida"; "Abaixo da Meta")</code></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Parte 4: Classificação -->
+            <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 flex flex-col justify-between hover:border-indigo-200 transition">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="bg-indigo-50 text-indigo-700 font-bold text-xs px-3 py-1 rounded-full border border-indigo-100">Passo 4</span>
+                        <i class="fa-solid fa-arrow-down-wide-short text-indigo-500 text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-900">Classificação (Ordenação)</h3>
+                    <ul class="mt-3 space-y-2 text-sm text-slate-600">
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-circle-check text-emerald-500 mt-1"></i>
+                            <span><strong>Destacar Maiores Vendas:</strong> Ordene toda a tabela com base na coluna <em>Valor Total</em>, do <strong>maior para o menor</strong> (Decrescente).</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-circle-check text-emerald-500 mt-1"></i>
+                            <span><strong>Objetivo:</strong> Identificar rapidamente quais foram as vendas mais lucrativas posicionadas no topo da planilha.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="bg-white border-t border-slate-200 py-6 mt-12 text-center text-slate-500 text-sm">
+        <p>Desenvolvido para aulas práticas de Informática Aplicada em Software de Escritório.</p>
+    </footer>
+
+    <!-- Script de Geração e Download do Arquivo Excel (.xlsx) -->
+    <script>
+        function baixarPlanilha() {
+            // Dados estruturados para a planilha
+            const dados = [
+                ["ID Venda", "Vendedor", "Produto", "Qtd Vendida", "Preço Unitário"],
+                [101, "Ana", "Mouse Gamer", 15, 120.00],
+                [102, "Carlos", "Teclado Mecânico", 8, 250.00],
+                [103, "Beatriz", "Headset", 12, 180.00],
+                [104, "Ana", "Monitor 24\"", 5, 900.00],
+                [105, "Carlos", "Mouse Gamer", 3, 120.00],
+                [106, "Beatriz", "Teclado Mecânico", 10, 250.00],
+                [107, "Ana", "Headset", 7, 180.00]
+            ];
+
+            // Criar uma nova planilha de trabalho usando SheetJS
+            const ws = XLSX.utils.aoa_to_sheet(dados);
+
+            // Ajustar largura automática das colunas para melhor visualização
+            const wscols = [
+                {wch: 12},
+                {wch: 15},
+                {wch: 22},
+                {wch: 15},
+                {wch: 18}
+            ];
+            ws['!cols'] = wscols;
+
+            // Criar o Livro de Trabalho (Workbook)
+            const wb = XLSX.utils.book_new();
+            XLSX.utils.book_append_sheet(wb, ws, "Controle de Vendas");
+
+            // Gerar o arquivo e disparar o download automático
+            XLSX.writeFile(wb, "atividade_vendas_excel.xlsx");
+        }
+    </script>
+
+</body>
+</html>

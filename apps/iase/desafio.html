@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Desafio Relâmpago - IASE</title>
+    <link rel="shortcut icon" href="./assets/logo.png" type="image/x-icon" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/desafio.css" />
+  </head>
+
+  <body>
+    <header class="app-header">
+      <a href="index.html" class="voltar">← Início</a>
+
+      <div>
+        <h1>Desafio Relâmpago</h1>
+        <p>Mouse + teclado em uma corrida contra o relógio</p>
+      </div>
+
+      <a href="mouse.html" class="proximo-app">Mouse →</a>
+    </header>
+
+    <main class="game-page">
+      <section class="game-intro">
+        <div>
+          <span class="game-kicker">DESAFIO DE HABILIDADE</span>
+          <h2>Reaja rápido. Faça muitos pontos.</h2>
+          <p>Clique no alvo luminoso e pressione a tecla indicada. Quanto mais rápido e maior o combo, maior a pontuação.</p>
+        </div>
+        <button id="botaoJogar" class="game-button" type="button">Começar partida</button>
+      </section>
+
+      <section class="game-stats" aria-label="Placar da partida">
+        <div class="game-stat game-stat-time">
+          <span>Tempo</span>
+          <strong id="tempo">45</strong>
+          <small>segundos</small>
+        </div>
+        <div class="game-stat">
+          <span>Pontuação</span>
+          <strong id="pontuacao">0</strong>
+          <small>pontos</small>
+        </div>
+        <div class="game-stat">
+          <span>Combo</span>
+          <strong id="combo">0</strong>
+          <small>acertos seguidos</small>
+        </div>
+        <div class="game-stat">
+          <span>Recorde</span>
+          <strong id="recorde">0</strong>
+          <small>melhor partida</small>
+        </div>
+      </section>
+
+      <section id="arena" class="game-arena" aria-label="Arena do Desafio Relâmpago">
+        <div class="arena-message" id="mensagemArena">
+          <strong>Pronto para testar seus reflexos?</strong>
+          <span>O alvo aparecerá aqui.</span>
+        </div>
+        <button id="alvo" class="game-target" type="button" aria-label="Alvo do desafio"></button>
+      </section>
+
+      <section class="game-feedback" aria-live="polite">
+        <strong id="comando">Clique em começar para jogar</strong>
+        <span id="feedback">Use o mouse e o teclado para marcar pontos.</span>
+      </section>
+    </main>
+
+    <script src="js/desafio.js"></script>
+  </body>
+</html>

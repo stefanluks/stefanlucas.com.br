@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz de Informática Básica - IASE</title>
+    <link rel="shortcut icon" href="./assets/logo.png" type="image/x-icon" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/quiz.css" />
+  </head>
+
+  <body>
+    <header class="app-header">
+      <a href="index.html" class="voltar">← Início</a>
+
+      <div>
+        <h1>Quiz de Informática Básica</h1>
+        <p>Hardware, software e Windows</p>
+      </div>
+
+      <a href="desafio.html" class="proximo-app">Desafio →</a>
+    </header>
+
+    <main class="quiz-page">
+      <section class="quiz-intro">
+        <div>
+          <span class="quiz-kicker">BANCO COM 50 QUESTÕES</span>
+          <h2>Mostre o que você sabe.</h2>
+          <p>Em cada tentativa, 15 perguntas diferentes serão escolhidas aleatoriamente. Leia com atenção e marque apenas uma alternativa.</p>
+        </div>
+        <div class="quiz-rule"><strong>15</strong><span>questões por tentativa</span></div>
+      </section>
+
+      <section class="quiz-status" aria-label="Progresso do quiz">
+        <div>
+          <span>Questão</span>
+          <strong id="numeroQuestao">1 / 15</strong>
+        </div>
+        <div>
+          <span>Acertos</span>
+          <strong id="acertosQuiz">0</strong>
+        </div>
+        <div>
+          <span>Pontuação</span>
+          <strong id="pontuacaoQuiz">0%</strong>
+        </div>
+      </section>
+
+      <section id="quizCard" class="quiz-card">
+        <div class="quiz-card-top">
+          <span id="categoriaQuestao" class="quiz-category">HARDWARE</span>
+          <span id="contadorBanco">Banco de questões</span>
+        </div>
+        <h2 id="pergunta">Carregando pergunta...</h2>
+        <form id="formularioQuiz">
+          <div id="opcoes" class="quiz-options"></div>
+          <button id="botaoResponder" class="quiz-submit" type="submit">Responder</button>
+        </form>
+        <p id="mensagemQuiz" class="quiz-message" aria-live="polite"></p>
+      </section>
+
+      <section id="resultadoQuiz" class="quiz-result" hidden>
+        <span class="quiz-kicker">RESULTADO DA TENTATIVA</span>
+        <h2 id="tituloResultado">Quiz concluído!</h2>
+        <div class="result-score"><strong id="notaFinal">0%</strong><span id="resumoFinal">0 de 15 respostas corretas</span></div>
+        <p id="mensagemFinal"></p>
+        <div id="revisaoQuiz" class="quiz-review"></div>
+        <button id="botaoNovoQuiz" class="quiz-submit" type="button">Fazer nova tentativa</button>
+      </section>
+    </main>
+
+    <script src="js/quiz.js"></script>
+  </body>
+</html>

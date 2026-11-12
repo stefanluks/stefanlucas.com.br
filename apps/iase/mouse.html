@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Controle do Mouse - IASE</title>
+<link rel="shortcut icon" href="./assets/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <header class="app-header">
+      <a href="index.html" class="voltar"> ← Início </a>
+
+      <div>
+        <h1>Controle do Mouse</h1>
+        <p>Clique no quadrado amarelo</p>
+      </div>
+
+      <a href="digitacao.html" class="proximo-app"> Digitação → </a>
+    </header>
+
+    <main class="mouse-page">
+      <section class="status-mouse">
+        <div class="status-item">
+          <span>Nível</span>
+          <strong id="nivel">4 x 4</strong>
+        </div>
+
+        <div class="status-item">
+          <span>Pontos</span>
+          <strong id="pontos">0 / 5</strong>
+        </div>
+
+        <div class="status-item">
+          <span>Total</span>
+          <strong id="total">0</strong>
+        </div>
+      </section>
+
+      <div id="mensagemNivel" class="mensagem-nivel"></div>
+
+      <section
+        id="mouseGrid"
+        class="mouse-grid"
+        aria-label="Área de treinamento do mouse"
+      ></section>
+    </main>
+
+    <script src="js/mouse.js"></script>
+  </body>
+</html>

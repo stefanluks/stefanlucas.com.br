@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Treino de Digitação - IASE</title>
+<link rel="shortcut icon" href="./assets/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <header class="app-header">
+      <a href="index.html" class="voltar"> ← Início </a>
+
+      <div>
+        <h1>Treino de Digitação</h1>
+
+        <p>Digite a frase apresentada</p>
+      </div>
+
+      <a href="mouse.html" class="proximo-app"> Mouse → </a>
+    </header>
+
+    <main class="typing-page">
+      <section class="typing-status">
+        <div class="status-item">
+          <span>Frase</span>
+
+          <strong id="fraseNumero"> 1 </strong>
+        </div>
+
+        <div class="status-item">
+          <span>Acertos</span>
+
+          <strong id="acertos"> 0 </strong>
+        </div>
+
+        <div class="status-item">
+          <span>Erros</span>
+
+          <strong id="erros"> 0 </strong>
+        </div>
+      </section>
+
+      <section class="typing-card">
+        <span class="label"> Digite: </span>
+
+        <div id="frase" class="frase-digitacao"></div>
+
+        <div class="progresso-digitacao">
+          <div id="barraProgresso" class="barra-progresso"></div>
+        </div>
+
+        <textarea
+          id="campoDigitacao"
+          class="campo-digitacao"
+          placeholder="Comece a digitar aqui..."
+          autocomplete="off"
+          autocorrect="off"
+          autocapitalize="off"
+          spellcheck="false"
+        ></textarea>
+      </section>
+
+      <section class="tecla-atual">
+        <div>
+          <span> Próxima tecla </span>
+
+          <strong id="proximaTecla"> - </strong>
+        </div>
+
+        <div>
+          <span> Dedo recomendado </span>
+
+          <strong id="dedoRecomendado"> - </strong>
+        </div>
+      </section>
+
+      <section class="hands-area">
+        <div class="hand">
+          <h3>Mão esquerda</h3>
+
+          <div class="fingers">
+            <div class="finger" data-finger="left-pinky">
+              <span>Mínimo</span>
+            </div>
+
+            <div class="finger" data-finger="left-ring">
+              <span>Anelar</span>
+            </div>
+
+            <div class="finger" data-finger="left-middle">
+              <span>Médio</span>
+            </div>
+
+            <div class="finger" data-finger="left-index">
+              <span>Indicador</span>
+            </div>
+
+            <div class="finger thumb" data-finger="thumb">
+              <span>Polegar</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hand">
+          <h3>Mão direita</h3>
+
+          <div class="fingers">
+            <div class="finger thumb" data-finger="thumb">
+              <span>Polegar</span>
+            </div>
+
+            <div class="finger" data-finger="right-index">
+              <span>Indicador</span>
+            </div>
+
+            <div class="finger" data-finger="right-middle">
+              <span>Médio</span>
+            </div>
+
+            <div class="finger" data-finger="right-ring">
+              <span>Anelar</span>
+            </div>
+
+            <div class="finger" data-finger="right-pinky">
+              <span>Mínimo</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div id="mensagemDigitacao" class="typing-message"></div>
+    </main>
+
+    <script src="js/digitacao.js"></script>
+  </body>
+</html>

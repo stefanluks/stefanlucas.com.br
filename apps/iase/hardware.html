@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Pac-Hardware - Aplicativos de IASE</title>
+
+    <link rel="stylesheet" href="css/hardware.css" />
+  </head>
+
+  <body>
+    <header>
+      <a href="index.html" class="voltar"> ← Início </a>
+
+      <div class="titulo">
+        <h1>Pac-Hardware</h1>
+
+        <p>Encontre os componentes internos do computador</p>
+      </div>
+
+      <div></div>
+    </header>
+
+    <main>
+      <section class="painel">
+        <div class="status">
+          <span>Pontos</span>
+
+          <strong id="pontos"> 0 </strong>
+        </div>
+
+        <div class="status">
+          <span>Componentes restantes</span>
+
+          <strong id="restantes"> 0 </strong>
+        </div>
+
+        <div class="status">
+          <span>Vidas</span>
+
+          <strong id="vidas"> 3 </strong>
+        </div>
+      </section>
+
+      <section class="game-area">
+        <canvas id="gameCanvas" width="640" height="448"> </canvas>
+
+        <div id="mensagem" class="mensagem">
+          Use as setas do teclado para começar.
+        </div>
+      </section>
+
+      <section class="instrucoes">
+        <h2>Como jogar?</h2>
+
+        <p>Use as setas do teclado para movimentar o personagem.</p>
+
+        <p>Devore apenas os componentes que ficam dentro do computador.</p>
+
+        <p>Cuidado com os vírus!</p>
+      </section>
+
+      <div id="modalFim" class="modal escondido">
+        <div class="modal-conteudo">
+          <h2 id="tituloFim">Parabéns!</h2>
+
+          <p id="textoFim">Você encontrou todos os componentes.</p>
+
+          <button id="reiniciar">Jogar novamente</button>
+
+          <a href="index.html"> Voltar para os aplicativos </a>
+        </div>
+      </div>
+    </main>
+
+    <script src="js/hardware.js"></script>
+  </body>
+</html>
